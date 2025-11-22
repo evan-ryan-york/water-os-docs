@@ -72,12 +72,13 @@ export default function Home() {
   // Auto-select first file when tab changes
   useEffect(() => {
     setContent(""); // Clear content immediately when tab changes
-    if (files.length > 0) {
-      setSelectedFile(files[0].path);
+    const currentFiles = CONTENT_MAP[activeTab] || [];
+    if (currentFiles.length > 0) {
+      setSelectedFile(currentFiles[0].path);
     } else {
       setSelectedFile("");
     }
-  }, [activeTab, files]);
+  }, [activeTab]);
 
   // Load file content
   useEffect(() => {
