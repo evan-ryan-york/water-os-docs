@@ -1,6 +1,8 @@
 "use client";
 
 import React, { useState } from "react";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 
 // Define transcript metadata
 interface Transcript {
@@ -2467,8 +2469,10 @@ export default function UserResearch() {
                   Copy
                 </button>
               </div>
-              <div className="prose max-w-none">
-                <pre className="whitespace-pre-wrap font-sans text-sm">{transcript.content}</pre>
+              <div className="prose prose-slate max-w-none">
+                <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                  {transcript.content}
+                </ReactMarkdown>
               </div>
             </div>
           ))}
