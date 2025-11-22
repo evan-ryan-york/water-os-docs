@@ -6,50 +6,97 @@ import remarkGfm from "remark-gfm";
 
 type Tab = "plan" | "bigpicture" | "business" | "tech" | "research" | "crm" | "links" | "market" | "gtm";
 
-const TABS: { id: Tab; label: string; path: string }[] = [
-  { id: "plan", label: "PLAN", path: "plan" },
-  { id: "bigpicture", label: "BIG PICTURE", path: "plan" },
-  { id: "business", label: "BUSINESS", path: "business" },
-  { id: "tech", label: "TECH", path: "tech" },
-  { id: "research", label: "RESEARCH", path: "research" },
-  { id: "crm", label: "CRM", path: "crm" },
-  { id: "links", label: "LINKS", path: "links" },
-  { id: "market", label: "MARKET", path: "market" },
-  { id: "gtm", label: "GTM", path: "gtm" },
+const TABS: { id: Tab; label: string }[] = [
+  { id: "plan", label: "PLAN" },
+  { id: "bigpicture", label: "BIG PICTURE" },
+  { id: "business", label: "BUSINESS" },
+  { id: "tech", label: "TECH" },
+  { id: "research", label: "RESEARCH" },
+  { id: "crm", label: "CRM" },
+  { id: "links", label: "LINKS" },
+  { id: "market", label: "MARKET" },
+  { id: "gtm", label: "GTM" },
 ];
+
+// Curated content structure matching the old app
+const CONTENT_MAP: Record<Tab, { label: string; path: string }[]> = {
+  plan: [
+    { label: "Executive Summary", path: "plan/executive-summary.md" },
+    { label: "Phase 1 Strategy", path: "plan/phase-1-strategy.md" },
+    { label: "POC Plan", path: "plan/poc-plan.md" },
+    { label: "POC Tech Stack", path: "plan/poc-tech-stack.md" },
+    { label: "High Level Strategy", path: "plan/high-level-strategy.md" },
+    { label: "GWCL Strategy", path: "plan/gwcl-strategy.md" },
+    { label: "Risk Identification", path: "plan/risk-identification-mitigation.md" },
+    { label: "Contamination SOP", path: "plan/contamination-sop.md" },
+    { label: "SOP Tech Requirements", path: "plan/contamination-sop-tech.md" },
+    { label: "Assurance Protocol", path: "plan/assurance-protocol.md" },
+    { label: "Transparency Plan", path: "plan/transparency-plan.md" },
+    { label: "Top 15 Cities", path: "plan/top-15-cities.md" },
+    { label: "Last Mile Challenges", path: "plan/last-mile-phase-1-challenges.md" },
+  ],
+  bigpicture: [
+    { label: "🎯 High Level Vision", path: "plan/high-level-vision.md" },
+    { label: "🔄 Flywheel", path: "plan/flywheel.md" },
+    { label: "🚧 20 Barriers", path: "plan/20-barriers.md" },
+    { label: "📅 20-Year Roadmap", path: "plan/detailed-20-year-phase.md" },
+    { label: "📄 Ryan 1-Pager", path: "plan/ryan-1-pager.md" },
+    { label: "🔍 Ryan Deep Dive", path: "plan/ryan-deep-dive.md" },
+    { label: "🏆 Deep SWOT", path: "plan/deep-swot.md" },
+  ],
+  business: [
+    { label: "Ghana Legal Consultation", path: "business/yorke-legal-consultation-11-19-2025.md" },
+  ],
+  tech: [
+    { label: "Tech Plan 2025-11-09", path: "tech/tech-plan-2025-11-09.md" },
+  ],
+  research: [
+    { label: "Accra", path: "research/accra.md" },
+    { label: "Kampala", path: "research/kampala.md" },
+    { label: "Chennai", path: "research/chennai.md" },
+    { label: "Cebu City Assessment", path: "research/cebu-city-assessment.md" },
+    { label: "Deep Research: Dhaka", path: "research/deep-research-dhaka.md" },
+    { label: "Deep Research: Lusaka", path: "research/deep-research-lusaka.md" },
+    { label: "Deep Research: Pune", path: "research/deep-research-pune.md" },
+    { label: "Gemini Source to Tap", path: "research/gemini-source-to-tap.md" },
+    { label: "GPT Source to Tap", path: "research/gpt-source-to-tap.md" },
+    { label: "Accra Networking", path: "research/networking/accra-networking.md" },
+    { label: "Accra Organizations", path: "research/networking/accra-organizations.md" },
+    { label: "Accra People", path: "research/networking/accra-people.md" },
+  ],
+  crm: [],
+  links: [],
+  market: [
+    { label: "Anna Meeting 2025-10-31", path: "market/anna-meeting-2025-10-31.md" },
+    { label: "Anna Meeting 2025-11-07", path: "market/anna-meeting-2025-11-07.md" },
+    { label: "Driver Validation Plan", path: "market/driver-validation-plan.md" },
+    { label: "User Research Synthesis", path: "market/user-research-synthesis-2025-11-09.md" },
+  ],
+  gtm: [],
+};
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState<Tab>("bigpicture");
-  const [files, setFiles] = useState<string[]>([]);
   const [selectedFile, setSelectedFile] = useState<string>("");
   const [content, setContent] = useState<string>("");
   const [loading, setLoading] = useState(false);
 
-  // Load files for the active tab
+  // Get files for active tab
+  const files = CONTENT_MAP[activeTab] || [];
+
+  // Auto-select first file when tab changes
   useEffect(() => {
-    const loadFiles = async () => {
-      const currentTab = TABS.find((t) => t.id === activeTab);
-      if (!currentTab) return;
-
-      try {
-        const res = await fetch(`/api/files?path=${currentTab.path}`);
-        const data = await res.json();
-        setFiles(data.files || []);
-
-        // Auto-select high-level-vision.md for bigpicture tab
-        if (activeTab === "bigpicture" && data.files?.includes("high-level-vision.md")) {
-          setSelectedFile("high-level-vision.md");
-        } else if (data.files?.length > 0) {
-          setSelectedFile(data.files[0]);
-        }
-      } catch (error) {
-        console.error("Error loading files:", error);
-        setFiles([]);
+    if (files.length > 0) {
+      // For bigpicture, default to high-level-vision
+      if (activeTab === "bigpicture") {
+        setSelectedFile("plan/high-level-vision.md");
+      } else {
+        setSelectedFile(files[0].path);
       }
-    };
-
-    loadFiles();
-  }, [activeTab]);
+    } else {
+      setSelectedFile("");
+    }
+  }, [activeTab, files]);
 
   // Load file content
   useEffect(() => {
@@ -59,12 +106,9 @@ export default function Home() {
     }
 
     const loadContent = async () => {
-      const currentTab = TABS.find((t) => t.id === activeTab);
-      if (!currentTab) return;
-
       setLoading(true);
       try {
-        const res = await fetch(`/api/content?path=${currentTab.path}/${selectedFile}`);
+        const res = await fetch(`/api/content?path=${selectedFile}`);
         const data = await res.json();
         setContent(data.content || "");
       } catch (error) {
@@ -76,7 +120,7 @@ export default function Home() {
     };
 
     loadContent();
-  }, [selectedFile, activeTab]);
+  }, [selectedFile]);
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -110,22 +154,24 @@ export default function Home() {
           {/* Sidebar */}
           <aside className="w-64 flex-shrink-0">
             <div className="bg-white rounded-lg border p-4 sticky top-24">
-              <h2 className="font-semibold mb-3 text-gray-700">Files</h2>
+              <h2 className="font-semibold mb-3 text-gray-700">
+                {TABS.find((t) => t.id === activeTab)?.label} Sections
+              </h2>
               <div className="space-y-1">
                 {files.length === 0 ? (
-                  <p className="text-sm text-gray-500">No files</p>
+                  <p className="text-sm text-gray-500">No content available</p>
                 ) : (
                   files.map((file) => (
                     <button
-                      key={file}
-                      onClick={() => setSelectedFile(file)}
+                      key={file.path}
+                      onClick={() => setSelectedFile(file.path)}
                       className={`w-full text-left px-3 py-2 rounded text-sm transition-colors ${
-                        selectedFile === file
-                          ? "bg-blue-50 text-blue-700 font-medium"
+                        selectedFile === file.path
+                          ? "bg-black text-white font-medium"
                           : "hover:bg-gray-50 text-gray-700"
                       }`}
                     >
-                      {file.replace(".md", "")}
+                      {file.label}
                     </button>
                   ))
                 )}
@@ -149,7 +195,9 @@ export default function Home() {
                 </article>
               ) : (
                 <div className="text-center py-12 text-gray-500">
-                  Select a file to view its content
+                  {files.length === 0
+                    ? "This section is coming soon"
+                    : "Select a file to view its content"}
                 </div>
               )}
             </div>
