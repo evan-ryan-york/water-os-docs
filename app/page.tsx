@@ -142,7 +142,7 @@ export default function Home() {
                   <p className="mt-4 text-gray-600">Loading...</p>
                 </div>
               ) : content ? (
-                <article className="markdown prose max-w-none">
+                <article className="prose prose-slate max-w-none">
                   <ReactMarkdown remarkPlugins={[remarkGfm]}>
                     {content}
                   </ReactMarkdown>
