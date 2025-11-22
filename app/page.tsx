@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import UserResearch from "./components/UserResearch";
 
 type Tab = "plan" | "bigpicture" | "business" | "tech" | "research" | "crm" | "links" | "market" | "gtm";
 
@@ -160,26 +161,31 @@ export default function Home() {
 
           {/* Content */}
           <div className="flex-1 min-w-0">
-            <div className="bg-white rounded-lg border p-8">
-              {loading ? (
-                <div className="text-center py-12">
-                  <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"></div>
-                  <p className="mt-4 text-gray-600">Loading...</p>
-                </div>
-              ) : content ? (
-                <article className="prose prose-slate max-w-none">
-                  <ReactMarkdown remarkPlugins={[remarkGfm]}>
-                    {content}
-                  </ReactMarkdown>
-                </article>
-              ) : (
-                <div className="text-center py-12 text-gray-500">
-                  {files.length === 0
-                    ? "This section is coming soon"
-                    : "Select a file to view its content"}
-                </div>
-              )}
-            </div>
+            {/* Special case: User Research component */}
+            {activeTab === "market" && selectedFile === "market/user-research-synthesis-2025-11-09.md" ? (
+              <UserResearch />
+            ) : (
+              <div className="bg-white rounded-lg border p-8">
+                {loading ? (
+                  <div className="text-center py-12">
+                    <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"></div>
+                    <p className="mt-4 text-gray-600">Loading...</p>
+                  </div>
+                ) : content ? (
+                  <article className="prose prose-slate max-w-none">
+                    <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                      {content}
+                    </ReactMarkdown>
+                  </article>
+                ) : (
+                  <div className="text-center py-12 text-gray-500">
+                    {files.length === 0
+                      ? "This section is coming soon"
+                      : "Select a file to view its content"}
+                  </div>
+                )}
+              </div>
+            )}
           </div>
         </div>
       </main>
