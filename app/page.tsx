@@ -11,29 +11,23 @@ const TABS: { id: Tab; label: string }[] = [
   { id: "bigpicture", label: "BIG PICTURE" },
   { id: "business", label: "BUSINESS" },
   { id: "tech", label: "TECH" },
+  { id: "market", label: "MARKET" },
   { id: "research", label: "RESEARCH" },
+  { id: "gtm", label: "GTM" },
   { id: "crm", label: "CRM" },
   { id: "links", label: "LINKS" },
-  { id: "market", label: "MARKET" },
-  { id: "gtm", label: "GTM" },
 ];
 
 // Curated content structure matching the old app
 const CONTENT_MAP: Record<Tab, { label: string; path: string }[]> = {
   plan: [
-    { label: "Executive Summary", path: "plan/executive-summary.md" },
-    { label: "Phase 1 Strategy", path: "plan/phase-1-strategy.md" },
-    { label: "POC Plan", path: "plan/poc-plan.md" },
-    { label: "POC Tech Stack", path: "plan/poc-tech-stack.md" },
-    { label: "High Level Strategy", path: "plan/high-level-strategy.md" },
+    { label: "Executive Summary", path: "plan/high-level-strategy.md" },
+    { label: "Execution Plan Table", path: "plan/phase-1-strategy.md" },
+    { label: "Contamination Plan", path: "plan/contamination-sop.md" },
+    { label: "By Month", path: "plan/phase-1-strategy.md" },
+    { label: "Risk Identification and Mitigation", path: "plan/risk-identification-mitigation.md" },
+    { label: "Moat", path: "plan/deep-swot.md" },
     { label: "GWCL Strategy", path: "plan/gwcl-strategy.md" },
-    { label: "Risk Identification", path: "plan/risk-identification-mitigation.md" },
-    { label: "Contamination SOP", path: "plan/contamination-sop.md" },
-    { label: "SOP Tech Requirements", path: "plan/contamination-sop-tech.md" },
-    { label: "Assurance Protocol", path: "plan/assurance-protocol.md" },
-    { label: "Transparency Plan", path: "plan/transparency-plan.md" },
-    { label: "Top 15 Cities", path: "plan/top-15-cities.md" },
-    { label: "Last Mile Challenges", path: "plan/last-mile-phase-1-challenges.md" },
   ],
   bigpicture: [
     { label: "🎯 High Level Vision", path: "plan/high-level-vision.md" },
@@ -76,7 +70,7 @@ const CONTENT_MAP: Record<Tab, { label: string; path: string }[]> = {
 };
 
 export default function Home() {
-  const [activeTab, setActiveTab] = useState<Tab>("bigpicture");
+  const [activeTab, setActiveTab] = useState<Tab>("plan");
   const [selectedFile, setSelectedFile] = useState<string>("");
   const [content, setContent] = useState<string>("");
   const [loading, setLoading] = useState(false);
@@ -87,12 +81,7 @@ export default function Home() {
   // Auto-select first file when tab changes
   useEffect(() => {
     if (files.length > 0) {
-      // For bigpicture, default to high-level-vision
-      if (activeTab === "bigpicture") {
-        setSelectedFile("plan/high-level-vision.md");
-      } else {
-        setSelectedFile(files[0].path);
-      }
+      setSelectedFile(files[0].path);
     } else {
       setSelectedFile("");
     }
