@@ -6,13 +6,13 @@ Strategic planning and documentation viewer for WaterOS.
 
 ```bash
 # Install dependencies
-npm install
+pnpm install
 
 # Run development server
-npm run dev
+pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) to view the application.
+Open [http://localhost:5301](http://localhost:5301) to view the application.
 
 ## Deployment
 
