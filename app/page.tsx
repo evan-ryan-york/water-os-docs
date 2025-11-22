@@ -8,9 +8,9 @@ type Tab = "plan" | "bigpicture" | "business" | "tech" | "research" | "crm" | "l
 
 const TABS: { id: Tab; label: string }[] = [
   { id: "plan", label: "PLAN" },
+  { id: "tech", label: "TECH" },
   { id: "bigpicture", label: "BIG PICTURE" },
   { id: "business", label: "BUSINESS" },
-  { id: "tech", label: "TECH" },
   { id: "market", label: "MARKET" },
   { id: "research", label: "RESEARCH" },
   { id: "gtm", label: "GTM" },
@@ -42,7 +42,8 @@ const CONTENT_MAP: Record<Tab, { label: string; path: string }[]> = {
     { label: "Ghana Legal Consultation", path: "business/yorke-legal-consultation-11-19-2025.md" },
   ],
   tech: [
-    { label: "Tech Plan 2025-11-09", path: "tech/tech-plan-2025-11-09.md" },
+    { label: "Platform Vision", path: "tech/tech-plan-2025-11-09.md" },
+    { label: "GPS POC Build Plan", path: "research/tech/gps-poc-completion-report.md" },
   ],
   research: [
     { label: "Accra", path: "research/accra.md" },
