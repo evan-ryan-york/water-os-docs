@@ -71,6 +71,7 @@ export default function Home() {
 
   // Auto-select first file when tab changes
   useEffect(() => {
+    setContent(""); // Clear content immediately when tab changes
     if (files.length > 0) {
       setSelectedFile(files[0].path);
     } else {
