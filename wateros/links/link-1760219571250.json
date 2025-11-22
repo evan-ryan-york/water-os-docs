@@ -1,0 +1,13 @@
+{
+  "title": "Emerging Desalination Technologies: Current Status, Challenges and Future Trends",
+  "summary": "This comprehensive review examines emerging desalination technologies that could diversify the industry beyond conventional reverse osmosis and thermal desalination. The article focuses on forward osmosis and membrane distillation technologies nearing commercialization, as well as electrochemical processes showing potential for scaling up. Key findings emphasize that advances in nanomaterials have significantly benefited these technologies, but commercialization requires addressing challenges like draw solution recovery in forward osmosis and utilizing low-grade heat sources in membrane distillation.",
+  "bulletPoints": [
+    "Forward osmosis and membrane distillation are the most promising emerging technologies approaching commercialization, though both remain largely limited to pilot-scale facilities despite decades of research",
+    "Membrane distillation shows particular promise for mineral recovery from brine solutions and could benefit from hybrid systems driven by renewable energy sources and low-grade heat utilization",
+    "Battery-based desalination and electrochemical processes are experiencing revival due to development of high-capacity electrode materials, potentially enabling effective brackish water and seawater desalination",
+    "Draw solution recovery remains the primary obstacle to achieving low energy consumption in forward osmosis systems at commercial scale",
+    "More pilot-scale studies and economic assessments of upscaling are needed to increase technology readiness levels and enable competition with conventional desalination methods"
+  ],
+  "url": "https://www.sciencedirect.com/science/article/abs/pii/S001191642100254X",
+  "dateAdded": "2025-10-11T21:52:51.250Z"
+}

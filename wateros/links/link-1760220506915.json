@@ -1,0 +1,13 @@
+{
+  "title": "Capacitive Deionization (CDI): An Energy-Efficient Water Desalination Technology",
+  "summary": "Capacitive deionization (CDI) is a water desalination technology that removes salt ions by applying electrical potential across porous carbon electrodes. It is particularly effective and energy-efficient for treating brackish water with low to moderate salt concentrations (below 10 g/L), as it removes ions from water rather than extracting water from salt solutions like reverse osmosis or distillation.",
+  "bulletPoints": [
+    "CDI works through adsorption-desorption cycles: ions are attracted to and stored in electrical double layers within porous carbon electrodes during charging, then released during regeneration when voltage is reversed or reduced to zero",
+    "Membrane CDI (MCDI), introduced in 2004, improves efficiency by incorporating ion exchange membranes that prevent co-ion loss and enable more stable freshwater production with lower energy requirements than conventional CDI",
+    "The technology is most cost-effective for brackish water desalination because energy costs scale with the amount of salt removed rather than water volume processed, making it competitive with reverse osmosis for low-salinity applications",
+    "Large-scale CDI facilities already operate successfully, including a 10,000 tons per day plant in China achieving 75% water recovery with energy consumption of approximately 1 kWh/m³",
+    "Advanced configurations include flow-through mode, flow-electrode CDI (which can handle higher salt concentrations like seawater), and ongoing research into novel electrode materials beyond activated carbon such as sodium manganese oxide and Prussian blue analogues"
+  ],
+  "url": "https://en.wikipedia.org/wiki/Capacitive_deionization",
+  "dateAdded": "2025-10-11T22:08:26.915Z"
+}

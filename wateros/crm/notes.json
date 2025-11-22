@@ -1,0 +1,30 @@
+[
+  {
+    "id": "n1",
+    "entityId": "p1",
+    "entityType": "person",
+    "timestamp": "2025-10-20T14:30:00Z",
+    "content": "Had a great call about their water treatment automation project. Very interested in our leak detection capabilities."
+  },
+  {
+    "id": "n2",
+    "entityId": "p1",
+    "entityType": "person",
+    "timestamp": "2025-09-15T10:00:00Z",
+    "content": "Initial introduction via email. Sent overview of our platform."
+  },
+  {
+    "id": "n3",
+    "entityId": "p2",
+    "entityType": "person",
+    "timestamp": "2025-10-18T11:00:00Z",
+    "content": "Discussed partnership opportunities for East Africa programs. Need to follow up with pilot proposal."
+  },
+  {
+    "id": "n4",
+    "entityId": "o1",
+    "entityType": "organization",
+    "timestamp": "2025-10-15T09:30:00Z",
+    "content": "TechCorp is evaluating water infrastructure solutions for their new campus. Scheduled demo for next week."
+  }
+]

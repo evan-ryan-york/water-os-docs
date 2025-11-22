@@ -1,0 +1,44 @@
+[
+  {
+    "id": "p1",
+    "firstName": "Sarah",
+    "lastName": "Chen",
+    "email": "sarah.chen@techcorp.com",
+    "phone": "+1-555-0123",
+    "avatar": "",
+    "organizationId": "o1",
+    "jobTitle": "Chief Technology Officer",
+    "description": "Leading technology initiatives for water treatment solutions",
+    "tags": ["technical", "decision-maker"],
+    "dateAdded": "2025-01-15T10:00:00Z",
+    "lastContacted": "2025-10-20T14:30:00Z"
+  },
+  {
+    "id": "p2",
+    "firstName": "James",
+    "lastName": "Rodriguez",
+    "email": "j.rodriguez@cleanwater.org",
+    "phone": "+1-555-0456",
+    "avatar": "",
+    "organizationId": "o2",
+    "jobTitle": "Program Director",
+    "description": "Oversees water access programs in East Africa",
+    "tags": ["partner", "non-profit"],
+    "dateAdded": "2025-02-20T09:15:00Z",
+    "lastContacted": "2025-10-18T11:00:00Z"
+  },
+  {
+    "id": "p3",
+    "firstName": "Amara",
+    "lastName": "Okonkwo",
+    "email": "amara.o@waterfund.vc",
+    "phone": "+1-555-0789",
+    "avatar": "",
+    "organizationId": "o3",
+    "jobTitle": "Investment Partner",
+    "description": "Focuses on water infrastructure and technology investments",
+    "tags": ["investor", "strategic"],
+    "dateAdded": "2025-03-10T13:45:00Z",
+    "lastContacted": "2025-10-15T16:20:00Z"
+  }
+]

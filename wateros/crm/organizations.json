@@ -1,0 +1,35 @@
+[
+  {
+    "id": "o1",
+    "name": "TechCorp Solutions",
+    "address": "123 Innovation Drive, San Francisco, CA 94102",
+    "email": "contact@techcorp.com",
+    "phone": "+1-555-0100",
+    "primaryContactId": "p1",
+    "businessType": "Technology Provider",
+    "tags": ["customer", "enterprise"],
+    "dateAdded": "2025-01-15T10:00:00Z"
+  },
+  {
+    "id": "o2",
+    "name": "Clean Water Initiative",
+    "address": "456 Hope Street, Nairobi, Kenya",
+    "email": "info@cleanwater.org",
+    "phone": "+254-20-555-0200",
+    "primaryContactId": "p2",
+    "businessType": "Non-Profit Organization",
+    "tags": ["partner", "implementation"],
+    "dateAdded": "2025-02-20T09:15:00Z"
+  },
+  {
+    "id": "o3",
+    "name": "Water Fund Ventures",
+    "address": "789 Capital Plaza, New York, NY 10001",
+    "email": "invest@waterfund.vc",
+    "phone": "+1-555-0300",
+    "primaryContactId": "p3",
+    "businessType": "Venture Capital",
+    "tags": ["investor", "financial"],
+    "dateAdded": "2025-03-10T13:45:00Z"
+  }
+]

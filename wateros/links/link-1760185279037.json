@@ -1,0 +1,13 @@
+{
+  "title": "The Real Cost and Energy Requirements of Desalination: Is It Really 'Absurdly Cheap'?",
+  "summary": "This analysis examines whether desalination is truly 'absurdly cheap' as Elon Musk claims, exploring the energy consumption and costs of modern reverse osmosis technology. While desalination has become significantly more efficient and affordable for drinking water (costing just $2.30 per person annually), it remains impractical for large-scale agricultural use due to prohibitive energy demands and costs that would exceed the value of most crops.",
+  "bulletPoints": [
+    "Modern reverse osmosis desalination uses 2.5-3.5 kWh per cubic meter of water, down from 20 kWh in the 1970s, making it far more efficient than previously thought",
+    "Providing drinking water through desalination is remarkably affordable at $2.30 per person per year for 3 liters daily, but meeting WHO's minimum domestic water needs (50 liters/day) would cost $38 annually",
+    "Desalinating all domestic water for US households would increase electricity demand by only 13%, a manageable amount comparable to other household appliances like dehumidifiers",
+    "Agricultural use remains economically unfeasible: desalinated water for wheat production would cost $0.66/kg while wheat sells for $0.22/kg, making the water three times more expensive than the final product",
+    "For developing countries in energy poverty, even basic desalination needs could represent 50% or more of current total electricity consumption per capita"
+  ],
+  "url": "https://www.sustainabilitybynumbers.com/p/how-much-energy-does-desalinisation",
+  "dateAdded": "2025-10-11T12:21:19.037Z"
+}

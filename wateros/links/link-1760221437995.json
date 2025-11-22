@@ -1,0 +1,13 @@
+{
+  "title": "Energy Efficiency Limits of Reverse Osmosis Desalination: Breaking Down Current Performance and Future Innovation Pathways",
+  "summary": "This study systematically analyzes the energy consumption breakdown of reverse osmosis (RO) desalination for both seawater and brackish water systems, revealing that the technology is approaching thermodynamic limitations. The research demonstrates that Gibbs free energy accounts for nearly half of seawater desalination energy use, while high permeability membranes alone will not yield significant energy savings. The authors identify that future improvements require holistic advances across spacers, membranes, module designs, and system configurations.",
+  "bulletPoints": [
+    "RO desalination is asymptoting toward thermodynamic limits, with Gibbs free energy of mixing representing approximately 50% of specific energy consumption in seawater desalination",
+    "High permeability membranes alone will not provide substantial energy savings; innovation must address spacers, module designs, and overall system architecture simultaneously",
+    "For brackish water desalination, system losses and frictional losses account for the majority of energy consumption rather than thermodynamic minimums",
+    "Energy costs contribute roughly 50% of total water costs in seawater desalination and 10% in brackish water systems, making energy efficiency critical for the water-energy-food nexus",
+    "The analysis provides a comprehensive framework for understanding where practical limits exist before reaching theoretical thermodynamic minimums, guiding future research priorities"
+  ],
+  "url": "https://www.sciencedirect.com/science/article/abs/pii/S0011916415000090",
+  "dateAdded": "2025-10-11T22:23:57.995Z"
+}

@@ -1,0 +1,16 @@
+{
+  "name": "WaterOS Planning Workspace",
+  "root": "./",
+  "folders": {
+    "plan": { "type": "markdown" },
+    "research": { "type": "markdown" },
+    "crm": { "type": "csv" },
+    "models": { "type": "csv" },
+    "assets": { "type": "binary" }
+  },
+  "schemas": {
+    "contact": ["crm/contacts.csv"],
+    "interaction": ["crm/interactions.csv"],
+    "cityScore": ["models/city_scores.csv"]
+  }
+}

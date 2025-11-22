@@ -1,0 +1,18 @@
+{
+  "avgLitersPerDayPerTruck": 10000,
+  "purchaserCostPerLiter": 0.04,
+  "averageTransactionRate": 0.12,
+  "paymentProcessingRate": 0.01,
+  "opsManagerMonthlyPay": 2500,
+  "salesStaffPay": 1000,
+  "threeMonthSubsidyRate": 0.15,
+  "newTruckCommission": 400,
+  "testingCostsPercent": 0.05,
+  "marketingPercent": 0.15,
+  "legalPercent": 0.1,
+  "depotRelationshipsManager": 1400,
+  "driverRelationshipSuccess": 1200,
+  "driversPerSuccessManager": 20,
+  "driversPerDepotManager": 40,
+  "travelMonthly": 2000
+}

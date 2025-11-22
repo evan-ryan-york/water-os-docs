@@ -1,0 +1,13 @@
+{
+  "title": "Artificial Intelligence Applications in Renewable Energy-Driven Desalination Systems: A Critical Review",
+  "summary": "This critical review examines how artificial intelligence technologies are being applied to optimize renewable energy-driven seawater desalination systems. The study analyzes AI applications across four key processes: site selection, energy prediction, technology selection, and parameter optimization. The research identifies artificial neural networks and genetic algorithms as the most widely adopted AI approaches for handling complex, multi-objective nonlinear problems in desalination system design.",
+  "bulletPoints": [
+    "AI is applied in desalination systems across four main areas: expert decision-making, optimization, prediction, and control throughout the design process",
+    "Artificial neural networks and genetic algorithms are the most mature and widespread AI technologies for solving multi-objective nonlinear problems in desalination",
+    "AI implementation in desalination systems maximizes efficiency, minimizes costs, and reduces human resource requirements compared to traditional experience-based approaches",
+    "The four critical processes in desalination system design are site selection, energy prediction, desalination technology selection, and systematic parameter optimization",
+    "AI technologies effectively address complex problems that cannot be solved through simple mathematical models or expert experience alone"
+  ],
+  "url": "https://www.sciencedirect.com/science/article/pii/S2666546821000719",
+  "dateAdded": "2025-10-11T22:16:49.969Z"
+}

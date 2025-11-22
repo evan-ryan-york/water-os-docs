@@ -1,0 +1,13 @@
+{
+  "title": "A Comparative Study of Reverse Osmosis (RO) and Multi-Stage Flash (MSF) Desalination Plants in Saudi Arabia",
+  "summary": "This 1996 research article compares two major seawater desalination technologies - Reverse Osmosis (RO) and Multi-Stage Flash (MSF) distillation - used in Saudi Arabia, which was then the world's largest producer of desalinated water. The study examines technical specifications, energy consumption, capital costs, and operational advantages of both processes, finding that while MSF dominated large-scale dual-purpose plants, RO was becoming increasingly competitive for moderate-capacity, single-purpose facilities.",
+  "bulletPoints": [
+    "Saudi Arabia operated 22 desalination plants with total capacity of 725.4 million gallons per day (mgd), with MSF accounting for 90% and RO only 10% of total capacity as of 1996",
+    "Energy consumption differs significantly: MSF plants typically use 3.7 kWh/m³ (mainly thermal energy), while RO plants consume 6.5-9.7 kWh/m³ of electrical energy depending on energy recovery systems",
+    "Economic analysis showed RO had lower capital costs ($170 million vs $190 million for a 100,000 t/d plant) and lower water production costs ($1.24/t vs $1.55/t for MSF)",
+    "MSF is preferred for large-scale dual-purpose (water and power) plants with low fuel costs, while RO is more competitive for moderate-capacity, single-purpose plants",
+    "Hybrid RO/MSF systems offer advantages including reduced capital costs, improved water quality through blending, lower energy consumption, and greater operational flexibility"
+  ],
+  "url": "https://www.researchgate.net/publication/235952900_A_comparative_study_of_RO_and_MSF_desalination_plants",
+  "dateAdded": "2025-10-11T21:52:34.578Z"
+}

@@ -1,0 +1,13 @@
+{
+  "title": "Energy Efficiency Comparison: Capacitive Deionization vs. Reverse Osmosis for Brackish Water Desalination",
+  "summary": "This study systematically compares the energy consumption of capacitive deionization (CDI) and reverse osmosis (RO) for brackish water desalination using system-scale models. The research demonstrates that RO is significantly more energy efficient than CDI, particularly for higher salinity feeds and higher salt rejection requirements. For brackish water at 2000 mg/L with 50% recovery and 75% salt rejection, CDI requires over eight times more energy than RO (0.85 vs 0.09 kWh/m³).",
+  "bulletPoints": [
+    "RO is significantly more energy efficient than CDI for brackish water desalination, consuming up to 8 times less energy under comparable operating conditions",
+    "For 2000 mg/L brackish water with 50% water recovery and 75% salt rejection at 10 L/m²/h flux, CDI requires 0.85 kWh/m³ compared to only 0.09 kWh/m³ for RO",
+    "Future improvements in CDI electrode materials (capacitance, charge efficiency, conductivity) can only marginally reduce energy consumption and cannot close the efficiency gap with RO",
+    "CDI cannot compete with RO on the basis of both energy consumption and capital cost for brackish water desalination applications",
+    "The study reveals that many previous claims of CDI being more energy efficient than RO were based on unfair comparisons between bench-scale CDI and large-scale RO systems with different performance parameters"
+  ],
+  "url": "https://www.sciencedirect.com/science/article/abs/pii/S0011916418323440",
+  "dateAdded": "2025-10-11T22:08:40.004Z"
+}
