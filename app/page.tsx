@@ -46,15 +46,15 @@ const CONTENT_MAP: Record<Tab, { label: string; path: string }[]> = {
     { label: "GPS POC Build Plan", path: "research/tech/gps-poc-completion-report.md" },
   ],
   research: [
-    { label: "User Research Synthesis", path: "market/user-research-synthesis-2025-11-09.md" },
+    { label: "TankerWala Model", path: "research/tankerwala-model.md" },
   ],
   crm: [],
   links: [],
   market: [
+    { label: "User Research", path: "market/user-research-synthesis-2025-11-09.md" },
     { label: "Anna Meeting 2025-10-31", path: "market/anna-meeting-2025-10-31.md" },
     { label: "Anna Meeting 2025-11-07", path: "market/anna-meeting-2025-11-07.md" },
     { label: "Driver Validation Plan", path: "market/driver-validation-plan.md" },
-    { label: "User Research Synthesis", path: "market/user-research-synthesis-2025-11-09.md" },
   ],
   gtm: [],
 };
