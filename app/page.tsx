@@ -4,6 +4,9 @@ import { useState, useEffect } from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import UserResearch from "./components/UserResearch";
+import CRM from "./components/CRM";
+import ExecutionPlan18M from "./components/ExecutionPlan18M";
+import ByMonth from "./components/ByMonth";
 
 type Tab = "plan" | "bigpicture" | "business" | "tech" | "research" | "crm" | "links" | "market" | "gtm";
 
@@ -23,9 +26,9 @@ const TABS: { id: Tab; label: string }[] = [
 const CONTENT_MAP: Record<Tab, { label: string; path: string }[]> = {
   plan: [
     { label: "Executive Summary", path: "plan/high-level-strategy.md" },
-    { label: "Execution Plan Table", path: "plan/phase-1-strategy.md" },
+    { label: "Execution Plan Table", path: "__component:execution-plan__" },
     { label: "Contamination Plan", path: "plan/contamination-sop.md" },
-    { label: "By Month", path: "plan/phase-1-strategy.md" },
+    { label: "By Month", path: "__component:by-month__" },
     { label: "Risk Identification and Mitigation", path: "plan/risk-identification-mitigation.md" },
     { label: "Moat", path: "plan/deep-swot.md" },
     { label: "GWCL Strategy", path: "plan/gwcl-strategy.md" },
@@ -37,9 +40,9 @@ const CONTENT_MAP: Record<Tab, { label: string; path: string }[]> = {
     { label: "📅 20-Year Roadmap", path: "plan/detailed-20-year-phase.md" },
     { label: "📄 Ryan 1-Pager", path: "plan/ryan-1-pager.md" },
     { label: "🔍 Ryan Deep Dive", path: "plan/ryan-deep-dive.md" },
-    { label: "🏆 Deep SWOT", path: "plan/deep-swot.md" },
   ],
   business: [
+    { label: "Legal Strategy", path: "business/legal-strategy.md" },
     { label: "Ghana Legal Consultation", path: "business/yorke-legal-consultation-11-19-2025.md" },
   ],
   tech: [
@@ -65,6 +68,7 @@ export default function Home() {
   const [selectedFile, setSelectedFile] = useState<string>("");
   const [content, setContent] = useState<string>("");
   const [loading, setLoading] = useState(false);
+  const [completedTasks, setCompletedTasks] = useState<Set<string>>(new Set());
 
   // Get files for active tab
   const files = CONTENT_MAP[activeTab] || [];
@@ -80,9 +84,27 @@ export default function Home() {
     }
   }, [activeTab]);
 
+  const toggleTask = (taskKey: string) => {
+    setCompletedTasks(prev => {
+      const newSet = new Set(prev);
+      if (newSet.has(taskKey)) {
+        newSet.delete(taskKey);
+      } else {
+        newSet.add(taskKey);
+      }
+      return newSet;
+    });
+  };
+
   // Load file content
   useEffect(() => {
     if (!selectedFile) {
+      setContent("");
+      return;
+    }
+
+    // Skip loading for component identifiers
+    if (selectedFile.startsWith("__component:")) {
       setContent("");
       return;
     }
@@ -135,7 +157,7 @@ export default function Home() {
         <div className="flex gap-6">
           {/* Sidebar */}
           <aside className="w-64 flex-shrink-0">
-            <div className="bg-white rounded-lg border p-4 sticky top-24">
+            <div key={activeTab} className="bg-white rounded-lg border p-4 sticky top-24">
               <h2 className="font-semibold mb-3 text-gray-700">
                 {TABS.find((t) => t.id === activeTab)?.label} Sections
               </h2>
@@ -163,8 +185,23 @@ export default function Home() {
 
           {/* Content */}
           <div className="flex-1 min-w-0">
-            {/* Special case: User Research component */}
-            {activeTab === "market" && selectedFile === "market/user-research-synthesis-2025-11-09.md" ? (
+            {/* Special case: CRM component */}
+            {activeTab === "crm" ? (
+              <div className="bg-white rounded-lg border p-8">
+                <CRM />
+              </div>
+            ) : /* Special case: Execution Plan Table */
+            selectedFile === "__component:execution-plan__" ? (
+              <div className="bg-white rounded-lg border p-8">
+                <ExecutionPlan18M completedTasks={completedTasks} toggleTask={toggleTask} />
+              </div>
+            ) : /* Special case: By Month */
+            selectedFile === "__component:by-month__" ? (
+              <div className="bg-white rounded-lg border p-8">
+                <ByMonth completedTasks={completedTasks} toggleTask={toggleTask} />
+              </div>
+            ) : /* Special case: User Research component */
+            activeTab === "market" && selectedFile === "market/user-research-synthesis-2025-11-09.md" ? (
               <UserResearch />
             ) : (
               <div className="bg-white rounded-lg border p-8">
