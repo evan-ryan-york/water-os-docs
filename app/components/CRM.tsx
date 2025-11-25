@@ -54,6 +54,7 @@ export default function CRM() {
   const [editingPerson, setEditingPerson] = React.useState<Person | null>(null);
   const [editingOrganization, setEditingOrganization] = React.useState<Organization | null>(null);
   const [selectedEntity, setSelectedEntity] = React.useState<SelectedEntity | null>(null);
+  const [copied, setCopied] = React.useState(false);
 
   const loadData = async () => {
     try {
@@ -192,23 +193,96 @@ export default function CRM() {
     setSelectedEntity({ type, id });
   };
 
+  const formatCRMForCopy = () => {
+    let text = "# CRM Data Export\n\n";
+
+    // People
+    text += "## People\n\n";
+    people.forEach(person => {
+      const org = organizations.find(o => o.id === person.organizationId);
+      text += `### ${person.firstName} ${person.lastName}\n`;
+      text += `- **Job Title:** ${person.jobTitle}\n`;
+      text += `- **Email:** ${person.email}\n`;
+      text += `- **Phone:** ${person.phone}\n`;
+      if (org) text += `- **Organization:** ${org.name}\n`;
+      if (person.description) text += `- **Description:** ${person.description}\n`;
+      if (person.tags.length > 0) text += `- **Tags:** ${person.tags.join(', ')}\n`;
+
+      // Add notes for this person
+      const personNotes = notes.filter(n => n.entityId === person.id && n.entityType === 'person');
+      if (personNotes.length > 0) {
+        text += `- **Notes:**\n`;
+        personNotes.forEach(note => {
+          text += `  - ${new Date(note.timestamp).toLocaleDateString()}: ${note.content}\n`;
+        });
+      }
+      text += '\n';
+    });
+
+    // Organizations
+    text += "## Organizations\n\n";
+    organizations.forEach(org => {
+      const primaryContact = people.find(p => p.id === org.primaryContactId);
+      text += `### ${org.name}\n`;
+      text += `- **Business Type:** ${org.businessType}\n`;
+      text += `- **Address:** ${org.address}\n`;
+      text += `- **Email:** ${org.email}\n`;
+      text += `- **Phone:** ${org.phone}\n`;
+      if (primaryContact) text += `- **Primary Contact:** ${primaryContact.firstName} ${primaryContact.lastName}\n`;
+      if (org.tags.length > 0) text += `- **Tags:** ${org.tags.join(', ')}\n`;
+
+      // Add notes for this organization
+      const orgNotes = notes.filter(n => n.entityId === org.id && n.entityType === 'organization');
+      if (orgNotes.length > 0) {
+        text += `- **Notes:**\n`;
+        orgNotes.forEach(note => {
+          text += `  - ${new Date(note.timestamp).toLocaleDateString()}: ${note.content}\n`;
+        });
+      }
+      text += '\n';
+    });
+
+    return text;
+  };
+
+  const handleCopy = async () => {
+    try {
+      const content = formatCRMForCopy();
+      await navigator.clipboard.writeText(content);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch (err) {
+      console.error("Failed to copy:", err);
+    }
+  };
+
   return (
-    <div className="flex gap-4">
-      <div className={`flex flex-col gap-4 transition-all ${selectedEntity ? 'w-2/3' : 'w-full'}`}>
-        <div className="flex gap-3">
-          <button
-            onClick={() => setShowNewPersonForm(true)}
-            className="px-4 py-2 bg-black text-white rounded hover:bg-gray-800"
-          >
-            + New Person
-          </button>
-          <button
-            onClick={() => setShowNewOrgForm(true)}
-            className="px-4 py-2 bg-black text-white rounded hover:bg-gray-800"
-          >
-            + New Organization
-          </button>
-        </div>
+    <div className="flex flex-col gap-4">
+      <div className="flex justify-end">
+        <button
+          onClick={handleCopy}
+          className="px-4 py-2 bg-black text-white rounded-lg hover:bg-gray-800 transition-colors font-medium"
+        >
+          {copied ? "Copied!" : "Copy"}
+        </button>
+      </div>
+
+      <div className="flex gap-4">
+        <div className={`flex flex-col gap-4 transition-all ${selectedEntity ? 'w-2/3' : 'w-full'}`}>
+          <div className="flex gap-3">
+            <button
+              onClick={() => setShowNewPersonForm(true)}
+              className="px-4 py-2 bg-black text-white rounded hover:bg-gray-800"
+            >
+              + New Person
+            </button>
+            <button
+              onClick={() => setShowNewOrgForm(true)}
+              className="px-4 py-2 bg-black text-white rounded hover:bg-gray-800"
+            >
+              + New Organization
+            </button>
+          </div>
 
         <div className="bg-white border rounded p-4">
           <div className="flex gap-4 mb-4">
@@ -313,6 +387,7 @@ export default function CRM() {
           initialData={editingOrganization}
         />
       )}
+      </div>
     </div>
   );
 }

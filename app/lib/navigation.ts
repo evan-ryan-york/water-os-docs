@@ -20,9 +20,12 @@ export const TABS: { id: Tab; label: string }[] = [
 
 export const CONTENT_MAP: Record<Tab, NavItem[]> = {
   plan: [
-    { label: "Executive Summary", slug: "executive-summary", path: "plan/high-level-strategy.md" },
+    { label: "Executive Summary", slug: "executive-summary", path: "plan/business-plan-v5.md" },
     { label: "Execution Plan Table", slug: "execution-plan", path: "__component:execution-plan__" },
-    { label: "Contamination Plan", slug: "contamination-plan", path: "plan/contamination-sop.md" },
+    { label: "Contamination SOP", slug: "contamination-sop", path: "plan/contamination-sop.md" },
+    { label: "SOP Tech Requirements", slug: "sop-tech-requirements", path: "plan/contamination-sop-tech.md" },
+    { label: "Assurance Protocol", slug: "assurance-protocol", path: "plan/assurance-protocol.md" },
+    { label: "Transparency Plan", slug: "transparency-plan", path: "plan/transparency-plan.md" },
     { label: "By Month", slug: "by-month", path: "__component:by-month__" },
     { label: "Risk Identification and Mitigation", slug: "risk-identification-mitigation", path: "plan/risk-identification-mitigation.md" },
     { label: "Moat", slug: "moat", path: "plan/deep-swot.md" },
@@ -31,6 +34,7 @@ export const CONTENT_MAP: Record<Tab, NavItem[]> = {
   bigpicture: [
     { label: "🎯 High Level Vision", slug: "high-level-vision", path: "plan/high-level-vision.md" },
     { label: "🔄 Flywheel", slug: "flywheel", path: "plan/flywheel.md" },
+    { label: "📊 WaterOS Sequence of Events", slug: "sequence-of-events", path: "plan/sequence-of-events.md" },
     { label: "🚧 20 Barriers", slug: "20-barriers", path: "plan/20-barriers.md" },
     { label: "📅 20-Year Roadmap", slug: "20-year-roadmap", path: "plan/detailed-20-year-phase.md" },
     { label: "📄 Ryan 1-Pager", slug: "ryan-1-pager", path: "plan/ryan-1-pager.md" },
@@ -39,6 +43,7 @@ export const CONTENT_MAP: Record<Tab, NavItem[]> = {
   business: [
     { label: "Legal Strategy", slug: "legal-strategy", path: "business/legal-strategy.md" },
     { label: "Ghana Legal Consultation", slug: "ghana-legal-consultation", path: "business/yorke-legal-consultation-11-19-2025.md" },
+    { label: "Investor List", slug: "investor-list", path: "__component:investor-list__" },
   ],
   tech: [
     { label: "Platform Vision", slug: "platform-vision", path: "tech/tech-plan-2025-11-09.md" },
@@ -50,9 +55,12 @@ export const CONTENT_MAP: Record<Tab, NavItem[]> = {
   crm: [
     { label: "CRM Dashboard", slug: "dashboard", path: "__component:crm__" },
   ],
-  links: [],
+  links: [
+    { label: "Links", slug: "links", path: "__component:links__" },
+  ],
   market: [
     { label: "User Research", slug: "user-research", path: "market/user-research-synthesis-2025-11-09.md" },
+    { label: "Anna Meeting 2025-10-24", slug: "anna-meeting-2025-10-24", path: "__component:anna-meeting-10-24__" },
     { label: "Anna Meeting 2025-10-31", slug: "anna-meeting-2025-10-31", path: "market/anna-meeting-2025-10-31.md" },
     { label: "Anna Meeting 2025-11-07", slug: "anna-meeting-2025-11-07", path: "market/anna-meeting-2025-11-07.md" },
     { label: "Driver Validation Plan", slug: "driver-validation-plan", path: "market/driver-validation-plan.md" },

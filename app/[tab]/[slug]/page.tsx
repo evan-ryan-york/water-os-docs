@@ -1,13 +1,15 @@
 import { notFound } from "next/navigation";
-import ReactMarkdown from "react-markdown";
-import remarkGfm from "remark-gfm";
 import { TABS, getItemBySlug, type Tab, CONTENT_MAP } from "../../lib/navigation";
 import Header from "../../components/Header";
 import Sidebar from "../../components/Sidebar";
+import MarkdownContentWithCopy from "../../components/MarkdownContentWithCopy";
 import UserResearch from "../../components/UserResearch";
 import CRM from "../../components/CRM";
 import ExecutionPlanWrapper from "../../components/ExecutionPlanWrapper";
 import ByMonthWrapper from "../../components/ByMonthWrapper";
+import InvestorList from "../../components/InvestorList";
+import AnnaMeeting1024 from "../../components/AnnaMeeting1024";
+import Links from "../../components/Links";
 import fs from "fs";
 import path from "path";
 
@@ -84,6 +86,21 @@ export default async function ContentPage({ params }: PageProps) {
       return <UserResearch />;
     }
 
+    // Special case: Investor List component
+    if (item.path === "__component:investor-list__") {
+      return <InvestorList />;
+    }
+
+    // Special case: Anna Meeting 10-24 component
+    if (item.path === "__component:anna-meeting-10-24__") {
+      return <AnnaMeeting1024 />;
+    }
+
+    // Special case: Links component
+    if (item.path === "__component:links__") {
+      return <Links />;
+    }
+
     return null;
   };
 
@@ -119,11 +136,7 @@ export default async function ContentPage({ params }: PageProps) {
           <Sidebar activeTab={tabId} currentSlug={slug} />
           <div className="flex-1 min-w-0">
             <div className="bg-white rounded-lg border p-8">
-              <article className="prose prose-slate max-w-none">
-                <ReactMarkdown remarkPlugins={[remarkGfm]}>
-                  {content}
-                </ReactMarkdown>
-              </article>
+              <MarkdownContentWithCopy content={content} />
             </div>
           </div>
         </div>

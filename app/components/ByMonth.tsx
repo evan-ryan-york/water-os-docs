@@ -377,6 +377,7 @@ interface ByMonthProps {
 
 export default function ByMonth({ completedTasks, toggleTask }: ByMonthProps) {
   const [selectedMonth, setSelectedMonth] = useState(months[0].key);
+  const [copied, setCopied] = useState(false);
 
   // Filter tasks for the selected month and flatten into individual tasks
   const tasksForMonth = allTasks.filter(task => task.month === selectedMonth);
@@ -411,9 +412,62 @@ export default function ByMonth({ completedTasks, toggleTask }: ByMonthProps) {
 
   const selectedMonthDisplay = months.find(m => m.key === selectedMonth)?.display || "";
 
+  const generateCopyText = () => {
+    let text = `# Execution Plan - ${selectedMonthDisplay}\n\n`;
+
+    // Group tasks by domain
+    const tasksByDomain: { [domain: string]: IndividualTask[] } = {};
+    individualTasks.forEach(task => {
+      if (!tasksByDomain[task.domain]) {
+        tasksByDomain[task.domain] = [];
+      }
+      tasksByDomain[task.domain].push(task);
+    });
+
+    // Format each domain's tasks
+    domains.forEach(domain => {
+      const domainTasks = tasksByDomain[domain.key];
+      if (domainTasks && domainTasks.length > 0) {
+        text += `## ${domain.name}\n`;
+        if (domain.subtitle) text += `${domain.subtitle}\n`;
+        text += '\n';
+
+        domainTasks.forEach(task => {
+          if (task.isTravel) {
+            text += `${task.taskText}\n\n`;
+          } else {
+            text += `- ${task.taskText}\n`;
+          }
+        });
+        text += '\n';
+      }
+    });
+
+    return text;
+  };
+
+  const handleCopy = async () => {
+    try {
+      const text = generateCopyText();
+      await navigator.clipboard.writeText(text);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch (err) {
+      console.error("Failed to copy text: ", err);
+    }
+  };
+
   return (
     <div className="max-w-7xl mx-auto">
-      <h1 className="text-3xl font-bold mb-6">Execution Plan by Month</h1>
+      <div className="flex justify-between items-center mb-6">
+        <h1 className="text-3xl font-bold">Execution Plan by Month</h1>
+        <button
+          onClick={handleCopy}
+          className="px-4 py-2 bg-black text-white rounded-lg hover:bg-gray-800 transition-colors font-medium"
+        >
+          {copied ? "Copied!" : "Copy"}
+        </button>
+      </div>
 
       {/* Month selector chips */}
       <div className="mb-8 flex flex-wrap gap-2">

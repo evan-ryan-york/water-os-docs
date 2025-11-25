@@ -82,7 +82,7 @@ While Clearwater functions as a logistics optimization tool ("Uber for Water"), 
 
 ### Phase 2: The Bridge – The Virtual Utility (Source Control)
 
-**Timeline:** Years 3–5 | **Focus:** Digitization & Supply Chain Control
+**Timeline:** Years 2–4 | **Focus:** Digitization & Supply Chain Control
 
 **The Pivot:** We move from "routing" trucks to "controlling" the source.
 
@@ -152,7 +152,7 @@ WaterOS captures value at every layer of the capital stack while using a strict 
 
 | Revenue Stream | Description | Payer | Margin Profile |
 |----------------|-------------|-------|----------------|
-| **1. Transaction Fees** | A percentage (1-5%) of Gross Merchandise Value (GMV) on every liter sold. This acts as the "Toll Booth" on the water economy. | End User (Embedded in Price) | High (~90% SaaS margins) |
+| **1. Marketplace Commissions** | A blended ~12% take rate on GMV (5% on existing driver relationships, 20% on new commercial leads). We monetize the logistics layer. | Driver (deducted from payout) | High (~90% SaaS margins) |
 | **2. Servicing Fees** | Recurring management fees (15-20% of revenue) for operating the grid, maintaining sensors, and managing billing. We are the "Property Manager" for the SPV. | The SPV (Investors) | Medium (~30-40%) |
 | **3. Origination Fees** | Investment banking-style fees (1-3% of capital raised) for structuring and selling the bonds to investors. | Bond Buyers / Capital Markets | High (~80%) |
 | **4. Efficiency Share** | "Carried Interest" on operational improvements. We keep ~50% of the value of water saved by reducing Non-Revenue Water (NRW). | The Utility / Bulk Supplier | Pure Profit (100%) |
@@ -173,6 +173,7 @@ To sell bonds to pension funds, we enforce a strict priority of payments within 
 **The Mitigation Strategy:**
 - **Local Currency Bonds:** We prioritize raising capital from local pension funds (e.g., SSNIT in Ghana) who invest in Cedi assets.
 - **Currency Hedging:** We utilize guarantees from development finance institutions (like MIGA or the World Bank) to hedge USD exposure.
+- **Local-First Debt Stack:** For the Island infrastructure (Phase 3), we prioritize borrowing in Local Currency (GHS) from local pension funds (SSNIT) or banks to match our assets and liabilities, avoiding the "Original Sin" of hard-currency infrastructure debt.
 
 ---
 
@@ -182,12 +183,12 @@ We are arbitraging the "Poverty Premium" and the "Thermodynamics of Transport."
 
 ### 1. The Unit Economics of Physics
 
-The transition from Trucks (Phase 1) to Pipes (Phase 3) is an arbitrage of energy.
+The transition from Trucks (Phase 1) to Pipes (Phase 3) is an arbitrage of energy efficiency.
 
-- **Truck Logistics:** Moving 22 million gallons via truck costs approx. **$28,000/day** in fuel/OpEx.
-- **Pipe Logistics:** Moving the same volume via pipe costs approx. **$550/day** (amortized).
+- **Truck Logistics:** Moving water via diesel truck is inefficient and expensive. The current market price for truck-delivered water is ~$26.00 - $40.00 USD per cubic meter ($m^3$) (approx. $0.04/liter).
+- **Pipe Logistics:** Moving water via gravity and electric pumps costs pennies. Our target price for piped water is $1.00 USD per cubic meter ($m^3$).
 
-**The Opportunity:** This **50x cost differential** is the margin we capture. We replace diesel with gravity.
+**The Opportunity:** This is a 25x - 40x price arbitrage. Because the current cost is so high, we can undercut the market by 95% (dropping price to $2.00 or $1.00) and still generate utility-scale margins that are attractive to global investors.
 
 ### 2. Beachhead Market: Accra, Ghana
 
@@ -195,8 +196,8 @@ The transition from Trucks (Phase 1) to Pipes (Phase 3) is an arbitrage of energ
 - **Daily Deficit:** 90 Million Gallons.
 
 **The Price Arbitrage:**
-- **Truck Price:** ~$4.50 USD / cubic meter ($m^3$).
-- **WaterOS Target Price:** $1.00 USD / $m^3$.
+- **Truck Price:** ~$0.04 USD / Liter ($40 USD / $m^3$).
+- **WaterOS Target Price:** ~$0.001 USD / Liter ($1 USD / $m^3$).
 - **Note:** We undercut the current market by ~78% (massive consumer surplus) while remaining ~20x higher than the defunct utility rate (massive investable yield).
 
 **TAM:** ~$292 Million USD / Year.
