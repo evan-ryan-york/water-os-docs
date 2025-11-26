@@ -1,4 +1,5 @@
 # Risk Identification and Mitigation
+**Version:** 1.0 | **Last Updated:** 2025-11-22
 
 ## 🔴 TIER 1: EXISTENTIAL THREATS
 *These risks can cause immediate, catastrophic failure with no recovery path.*

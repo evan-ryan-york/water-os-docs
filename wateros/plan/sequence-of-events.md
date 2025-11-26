@@ -1,5 +1,5 @@
-# WaterOS: The 15-Step Execution Roadmap
-## From Logistics App to Infrastructure Asset Class
+# WaterOS Sequence of Events
+**Version:** 1.0 | **Last Updated:** 2025-11-25
 
 ---
 

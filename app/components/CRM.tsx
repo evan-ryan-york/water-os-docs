@@ -258,7 +258,11 @@ export default function CRM() {
 
   return (
     <div className="flex flex-col gap-4">
-      <div className="flex justify-end">
+      <div className="flex justify-between items-start">
+        <div>
+          <h1 className="text-3xl font-bold">CRM Dashboard</h1>
+          <p className="text-sm text-gray-500 mt-1">Version: 1.0 | Last Updated: 2025-11-25</p>
+        </div>
         <button
           onClick={handleCopy}
           className="px-4 py-2 bg-black text-white rounded-lg hover:bg-gray-800 transition-colors font-medium"

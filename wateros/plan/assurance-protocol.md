@@ -1,4 +1,5 @@
-# Water OS Quality Assurance Protocol (Internal)
+# Quality Assurance Protocol
+**Version:** 1.0 | **Last Updated:** 2025-11-22
 
 ## 1. Guiding Principle: "Trust Through Verification"
 

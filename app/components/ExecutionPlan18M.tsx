@@ -485,7 +485,8 @@ export default function ExecutionPlan18M({ completedTasks, toggleTask }: Executi
       </button>
 
       <div className="pt-12" style={{ width: '100%', minWidth: 0 }}>
-        <h1 className="text-3xl font-bold mb-2 text-gray-900">18-Month Execution Plan</h1>
+        <h1 className="text-3xl font-bold mb-2 text-gray-900">Execution Plan Table</h1>
+        <p className="text-sm text-gray-500 mb-4">Version: 1.0 | Last Updated: 2025-11-22</p>
         <p className="text-gray-600 mb-6">November 2025 - April 2027</p>
 
         {/* Matrix Table */}

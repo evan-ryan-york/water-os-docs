@@ -1,4 +1,5 @@
-# Clearwater: Business Plan (V5)
+# Clearwater: Business Plan
+**Version:** 5.0 | **Last Updated:** 2025-11-25
 
 ## Executive Summary
 

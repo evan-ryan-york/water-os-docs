@@ -1,7 +1,7 @@
-Ryan York: Comprehensive Dossier
-Strategic Brief for AI Systems | October 2025
+# Ryan York: Comprehensive Dossier
+**Version:** 1.0 | **Last Updated:** 2025-11-22
 
-Executive Summary
+## Executive Summary
 Ryan York is a 40-year-old polymath systems builder at the intersection of technology, operations, and social impact. He is defined by an extraordinary ability to operate across the full stack of complex problems—from high-level strategy down to production code—and by a relentless drive to build self-sustaining systems that unlock human potential at scale.
 After 18 years building and leading in education (teacher, principal, CTO, charter school co-founder/co-CEO), he transitioned fully into product and software leadership, where he now combines deep operational experience with cutting-edge technical expertise in AI-driven development. He has started four businesses, scaled systems from 0 to serving tens of thousands of users, managed $10MM+ budgets, led teams of 200+, and proven himself as both a visionary strategist and hands-on executor.
 His current life mission is Water OS: a 20-year vision to build the operating system for universal water access, starting with a capital-light software marketplace in Accra, Ghana, and scaling to serve 200-500 million people globally. This represents the first time in his career where the problem itself is as compelling as the act of building—the ultimate expression of his core values of equity, impact, and innovation.

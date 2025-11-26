@@ -33,10 +33,7 @@ export const CONTENT_MAP: Record<Tab, NavItem[]> = {
   ],
   bigpicture: [
     { label: "🎯 High Level Vision", slug: "high-level-vision", path: "plan/high-level-vision.md" },
-    { label: "🔄 Flywheel", slug: "flywheel", path: "plan/flywheel.md" },
     { label: "📊 WaterOS Sequence of Events", slug: "sequence-of-events", path: "plan/sequence-of-events.md" },
-    { label: "🚧 20 Barriers", slug: "20-barriers", path: "plan/20-barriers.md" },
-    { label: "📅 20-Year Roadmap", slug: "20-year-roadmap", path: "plan/detailed-20-year-phase.md" },
     { label: "📄 Ryan 1-Pager", slug: "ryan-1-pager", path: "plan/ryan-1-pager.md" },
     { label: "🔍 Ryan Deep Dive", slug: "ryan-deep-dive", path: "plan/ryan-deep-dive.md" },
   ],

@@ -98,7 +98,8 @@ Funding Goal: $100,000 - $200,000 (Pre-Seed/Seed Round)`;
       </button>
 
       <div className="pt-12 max-w-7xl">
-        <h1 className="text-3xl font-bold mb-2 text-gray-900">For-Profit Funding Strategy & Target Investor List</h1>
+        <h1 className="text-3xl font-bold mb-2 text-gray-900">Investor List</h1>
+        <p className="text-sm text-gray-500 mb-4">Version: 1.0 | Last Updated: 2025-11-25</p>
 
         <div className="bg-blue-50 border-l-4 border-blue-600 p-5 mb-8">
           <p className="font-semibold text-blue-900 mb-2">Project: A Digital Utility for Urban Africa</p>

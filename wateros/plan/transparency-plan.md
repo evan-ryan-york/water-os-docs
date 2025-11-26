@@ -1,4 +1,5 @@
-# Water OS Customer-Facing Transparency Plan
+# Customer-Facing Transparency Plan
+**Version:** 1.0 | **Last Updated:** 2025-11-22
 
 ## 1. Guiding Philosophy
 

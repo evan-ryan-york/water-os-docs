@@ -1,4 +1,5 @@
-# Yorke Legal Consultation 11-19-2025
+# Ghana Legal Consultation
+**Version:** 1.0 | **Last Updated:** 2025-11-22
 
 **Meeting Title:** Ghana business registration and technology transfer requirements for water marketplace startup
 **Date:** Nov 19, 2025

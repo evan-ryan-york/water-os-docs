@@ -1,4 +1,5 @@
-# Water OS: Contamination Incident Response Plan (INTERNAL)
+# Contamination Incident Response Plan
+**Version:** 1.0 | **Last Updated:** 2025-11-22
 
 **Status**: CONFIDENTIAL, DRAFT
 **Owner**: Founder, Operations Manager

@@ -1,4 +1,5 @@
-# Meeting with Anna - November 7, 2025
+# Anna Meeting 2025-11-07
+**Version:** 1.0 | **Last Updated:** 2025-11-22
 
 **Date:** November 7, 2025
 **Topic:** Water delivery market research in Ghana

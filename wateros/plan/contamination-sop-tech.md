@@ -1,4 +1,5 @@
-# Technical Requirements: Data Architecture for Traceability
+# SOP Technical Requirements
+**Version:** 1.0 | **Last Updated:** 2025-11-22
 
 **The Incident Response Plan is impossible without this data structure. The "Order" flow must be built as a "Batch Traceability" flow.**
 

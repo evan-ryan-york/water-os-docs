@@ -129,7 +129,8 @@ export default function Links() {
   return (
     <div className="p-6">
       <div className="mb-8">
-        <h1 className="text-3xl font-bold text-gray-900 mb-2">Useful Links</h1>
+        <h1 className="text-3xl font-bold text-gray-900 mb-2">Links</h1>
+        <p className="text-sm text-gray-500 mb-4">Version: 1.0 | Last Updated: 2025-11-25</p>
         <p className="text-gray-600 mb-6">
           A curated collection of resources, tools, and organizations relevant
           to water management and development.

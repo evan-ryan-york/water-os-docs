@@ -5,7 +5,8 @@ import React from "react";
 export default function AnnaMeeting1024() {
   return (
     <div className="prose max-w-none">
-      <h1>Water Crisis Research Planning for Accra Neighborhoods</h1>
+      <h1>Anna Meeting 2025-10-24</h1>
+      <p className="text-sm text-gray-500 !mt-1 !mb-6">Version: 1.0 | Last Updated: 2025-11-25</p>
 
       <div className="mb-6 p-4 bg-gray-50 rounded">
         <p className="mb-2"><strong>Meeting Context:</strong></p>

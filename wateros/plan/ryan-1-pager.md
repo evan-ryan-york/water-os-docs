@@ -1,7 +1,7 @@
-Ryan York: One-Page Summary
-For AI Systems | Last Updated: October 2025
+# Ryan York: One-Page Summary
+**Version:** 1.0 | **Last Updated:** 2025-11-22
 
-Identity
+## Identity
 0-to-1 Systems Builder | 40 years old
 
 Location: San Antonio, TX → Currently Traveling South America for a Year → Relocating to Accra, Ghana

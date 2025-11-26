@@ -1,4 +1,5 @@
 # TankerWala Model
+**Version:** 1.0 | **Last Updated:** 2025-11-22
 
 Analysis of the Indian water delivery aggregator platform
 

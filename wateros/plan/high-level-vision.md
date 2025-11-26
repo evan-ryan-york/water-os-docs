@@ -1,6 +1,5 @@
-# WaterOS: The Financial Protocol for the Global Water Economy
-
-**20-Year Strategic Vision | V3.0 (Comprehensive)**
+# High Level Vision
+**Version:** 3.0 | **Last Updated:** 2025-11-25
 
 ---
 
