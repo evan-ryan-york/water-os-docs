@@ -1,5 +1,5 @@
 # Contamination Incident Response Plan
-**Version:** 1.0 | **Last Updated:** 2025-11-22
+**Version:** 1.1 | **Last Updated:** 2025-11-26
 
 **Status**: CONFIDENTIAL, DRAFT
 **Owner**: Founder, Operations Manager
@@ -77,7 +77,7 @@ The instant the audit is marked "POSITIVE," the Admin Dashboard must automatical
 
 ### The Script:
 
-> "Hello [Customer Name], this is Ryan, the founder of Water OS. I am calling with an important and urgent water quality alert.
+> "Hello [Customer Name], this is Ryan, the founder of Clearwater. I am calling with an important and urgent water quality alert.
 >
 > A routine, 24-hour lab test we conduct as part of our 3-Layer Trust Check has just come back positive for E. coli.
 >

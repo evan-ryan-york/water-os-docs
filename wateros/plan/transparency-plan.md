@@ -1,5 +1,5 @@
 # Customer-Facing Transparency Plan
-**Version:** 1.0 | **Last Updated:** 2025-11-22
+**Version:** 1.1 | **Last Updated:** 2025-11-26
 
 ## 1. Guiding Philosophy
 
@@ -9,7 +9,7 @@ Instead, our message is: **"We are the only platform that verifies every single 
 
 ## 2. Core Marketing Message
 
-**Slogan**: Water OS: The 3-Layer Trust Check™
+**Slogan**: Clearwater: The 3-Layer Trust Check™
 
 **Elevator Pitch**: "We know how hard it is to trust water quality in Accra. That's why we built a new system. We're the only platform that performs a 3-Layer Trust Check: we lab-test every depot before they join, we run an instant 3-point field test on every fill-up, and we run constant, random lab audits for invisible threats like E. coli and heavy metals. We don't just promise—we verify."
 

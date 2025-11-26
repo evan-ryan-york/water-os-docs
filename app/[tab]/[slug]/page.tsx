@@ -10,6 +10,7 @@ import ByMonthWrapper from "../../components/ByMonthWrapper";
 import InvestorList from "../../components/InvestorList";
 import AnnaMeeting1024 from "../../components/AnnaMeeting1024";
 import Links from "../../components/Links";
+import ContaminationPlan from "../../components/ContaminationPlan";
 import fs from "fs";
 import path from "path";
 
@@ -62,6 +63,37 @@ export default async function ContentPage({ params }: PageProps) {
 
   if (!item) {
     notFound();
+  }
+
+  // Special case: Contamination Plan (needs to load 4 markdown files)
+  if (item.path === "__component:contamination-plan__") {
+    const [sopContent, sopTechContent, assuranceContent, transparencyContent] = await Promise.all([
+      getContent("plan/contamination-sop.md"),
+      getContent("plan/contamination-sop-tech.md"),
+      getContent("plan/assurance-protocol.md"),
+      getContent("plan/transparency-plan.md"),
+    ]);
+
+    return (
+      <div className="min-h-screen bg-gray-50">
+        <Header activeTab={tabId} />
+        <main className="container mx-auto px-4 py-6">
+          <div className="flex gap-6">
+            <Sidebar activeTab={tabId} currentSlug={slug} />
+            <div className="flex-1 min-w-0">
+              <div className="bg-white rounded-lg border p-8">
+                <ContaminationPlan
+                  sopContent={sopContent}
+                  sopTechContent={sopTechContent}
+                  assuranceContent={assuranceContent}
+                  transparencyContent={transparencyContent}
+                />
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    );
   }
 
   // Handle special component cases

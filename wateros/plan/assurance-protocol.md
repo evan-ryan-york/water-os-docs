@@ -1,5 +1,5 @@
 # Quality Assurance Protocol
-**Version:** 1.0 | **Last Updated:** 2025-11-22
+**Version:** 1.1 | **Last Updated:** 2025-11-26
 
 ## 1. Guiding Principle: "Trust Through Verification"
 
@@ -48,7 +48,7 @@ All tests are benchmarked against the Ghana Standards Authority (GSA) DGS 175:20
 
 #### Equipment:
 
-Each driver will be issued a **Water OS Field Test Kit** containing:
+Each driver will be issued a **Clearwater Field Test Kit** containing:
 - Digital Turbidity Meter (e.g., Hach 2100Q or Hanna HI98713)
 - Digital TDS/EC Meter (e.g., Hanna HI99301)
 - ATP Luminometer & Swabs (e.g., Hygiena EnSURE Touch & AquaSnap)

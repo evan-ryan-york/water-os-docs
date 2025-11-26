@@ -22,13 +22,8 @@ export const CONTENT_MAP: Record<Tab, NavItem[]> = {
   plan: [
     { label: "Executive Summary", slug: "executive-summary", path: "plan/business-plan-v5.md" },
     { label: "Execution Plan Table", slug: "execution-plan", path: "__component:execution-plan__" },
-    { label: "Contamination SOP", slug: "contamination-sop", path: "plan/contamination-sop.md" },
-    { label: "SOP Tech Requirements", slug: "sop-tech-requirements", path: "plan/contamination-sop-tech.md" },
-    { label: "Assurance Protocol", slug: "assurance-protocol", path: "plan/assurance-protocol.md" },
-    { label: "Transparency Plan", slug: "transparency-plan", path: "plan/transparency-plan.md" },
+    { label: "Contamination Plan", slug: "contamination-plan", path: "__component:contamination-plan__" },
     { label: "By Month", slug: "by-month", path: "__component:by-month__" },
-    { label: "Risk Identification and Mitigation", slug: "risk-identification-mitigation", path: "plan/risk-identification-mitigation.md" },
-    { label: "Moat", slug: "moat", path: "plan/deep-swot.md" },
     { label: "GWCL Strategy", slug: "gwcl-strategy", path: "plan/gwcl-strategy.md" },
   ],
   bigpicture: [
