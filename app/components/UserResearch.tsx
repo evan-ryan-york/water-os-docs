@@ -2340,7 +2340,10 @@ export default function UserResearch() {
       {/* Header with controls */}
       <div className="bg-white border rounded p-4">
         <div className="flex items-center justify-between mb-4">
-          <h2 className="text-2xl font-bold">User Research Transcripts</h2>
+          <div>
+            <h1 className="text-2xl font-bold">User Research</h1>
+            <p className="text-sm text-gray-500">Version: 1.0 | Last Updated: 2025-11-22</p>
+          </div>
           <button
             onClick={copyAllVisible}
             className={`px-4 py-2 rounded transition-colors ${
@@ -2494,7 +2497,7 @@ export default function UserResearch() {
           <div className="border-b pb-4 mb-4">
             <h3 className="text-xl font-bold text-gray-900">Nuhé (Fleet Owner – 2 Trucks)</h3>
             <p className="text-sm text-gray-600 mt-2">
-              <strong>Context:</strong> Small fleet operator in Accra. Previously sourced water from the "under bridge" hydrant managed by McCarthy & Sons.
+              <strong>Context:</strong> Small fleet operator in Accra. Previously sourced water from the &quot;under bridge&quot; hydrant managed by McCarthy &amp; Sons.
               Has been unable to operate very well for the past three months due to GWCL restrictions.
             </p>
           </div>
@@ -2529,7 +2532,7 @@ export default function UserResearch() {
                     </span>
                   </td>
                   <td className="py-3 px-4 text-gray-600">
-                    <strong>Severe.</strong> His entire operation has been halted because the hydrant source was closed. He explicitly said he's been unable to fetch water for 3 months.
+                    <strong>Severe.</strong> His entire operation has been halted because the hydrant source was closed. He explicitly said he&apos;s been unable to fetch water for 3 months.
                   </td>
                 </tr>
                 <tr className="border-b border-gray-200 hover:bg-gray-50">
@@ -2540,7 +2543,7 @@ export default function UserResearch() {
                     </span>
                   </td>
                   <td className="py-3 px-4 text-gray-600">
-                    Previously, queues at the "under-bridge" depot caused minor delays, but now the issue is total closure rather than long waits.
+                    Previously, queues at the &quot;under-bridge&quot; depot caused minor delays, but now the issue is total closure rather than long waits.
                   </td>
                 </tr>
                 <tr className="border-b border-gray-200 hover:bg-gray-50">
@@ -2594,8 +2597,8 @@ export default function UserResearch() {
             </div>
             <div className="mt-4 p-4 bg-blue-50 rounded-lg border border-blue-200">
               <p className="text-sm text-gray-700 leading-relaxed">
-                <strong>Summary:</strong> Nuhé's primary struggle is regulatory disruption — losing access to the GWCL hydrant has completely slowed down his business.
-                While everyday inefficiencies like traffic or fuel exist, they're secondary to the core problem of not being allowed to fetch water.
+                <strong>Summary:</strong> Nuhé&apos;s primary struggle is regulatory disruption — losing access to the GWCL hydrant has completely slowed down his business.
+                While everyday inefficiencies like traffic or fuel exist, they&apos;re secondary to the core problem of not being allowed to fetch water.
               </p>
             </div>
           </div>
@@ -2706,7 +2709,7 @@ export default function UserResearch() {
             </div>
             <div className="mt-4 p-4 bg-blue-50 rounded-lg border border-blue-200">
               <p className="text-sm text-gray-700 leading-relaxed">
-                <strong>Summary:</strong> Joseph's main struggle is operational inefficiency caused by unreliable water sources. His fleet wastes substantial time and fuel
+                <strong>Summary:</strong> Joseph&apos;s main struggle is operational inefficiency caused by unreliable water sources. His fleet wastes substantial time and fuel
                 traveling to distant depots. Queues worsen the issue, reducing daily trips per truck and increasing costs. Payment and cancellations are negligible
                 compared to the supply-side and fuel problems.
               </p>
