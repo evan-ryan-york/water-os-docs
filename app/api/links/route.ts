@@ -60,3 +60,30 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: 'Failed to save link' }, { status: 500 });
   }
 }
+
+export async function DELETE(request: NextRequest) {
+  try {
+    const { url } = await request.json();
+    const linksDir = path.join(process.cwd(), 'wateros', 'links');
+
+    const files = await fs.readdir(linksDir);
+    const jsonFiles = files.filter(file => file.endsWith('.json'));
+
+    // Find and delete the file with matching URL
+    for (const file of jsonFiles) {
+      const filePath = path.join(linksDir, file);
+      const content = await fs.readFile(filePath, 'utf8');
+      const linkData = JSON.parse(content) as LinkData;
+
+      if (linkData.url === url) {
+        await fs.unlink(filePath);
+        return NextResponse.json({ success: true });
+      }
+    }
+
+    return NextResponse.json({ error: 'Link not found' }, { status: 404 });
+  } catch (error) {
+    console.error('Error deleting link:', error);
+    return NextResponse.json({ error: 'Failed to delete link' }, { status: 500 });
+  }
+}
