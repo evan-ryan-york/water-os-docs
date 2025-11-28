@@ -1,6 +1,7 @@
 "use client";
 
 import React from 'react';
+import AvatarUpload, { useAvatarUpload } from './AvatarUpload';
 
 type Person = {
   id: string;
@@ -20,6 +21,7 @@ type Person = {
 type Organization = {
   id: string;
   name: string;
+  avatar: string;
   address: string;
   email: string;
   phone: string;
@@ -80,42 +82,82 @@ export default function CRM() {
     loadData();
   }, []);
 
-  const handleSavePerson = async (person: Person) => {
-    let updatedPeople: Person[];
+  const handleSavePerson = async (person: Person, pendingAvatarFile?: File | null) => {
+    try {
+      // Save person to database
+      const response = await fetch('/api/crm?type=people', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ data: person }),
+      });
 
-    if (editingPerson) {
-      updatedPeople = people.map(p => p.id === person.id ? person : p);
+      const result = await response.json();
+      if (!response.ok) {
+        console.error('Failed to save person:', result.error);
+        return;
+      }
+
+      const savedPerson = result.data;
+
+      // If there's a pending avatar file, upload it now
+      if (pendingAvatarFile && savedPerson?.id) {
+        const formData = new FormData();
+        formData.append('file', pendingAvatarFile);
+        formData.append('entityType', 'person');
+        formData.append('entityId', savedPerson.id);
+
+        await fetch('/api/avatar', {
+          method: 'POST',
+          body: formData,
+        });
+      }
+
+      // Refresh data from server
+      await loadData();
       setEditingPerson(null);
-    } else {
-      updatedPeople = [...people, person];
+      setShowNewPersonForm(false);
+    } catch (error) {
+      console.error('Error saving person:', error);
     }
-
-    await fetch('/api/crm?type=people', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ data: updatedPeople }),
-    });
-    setPeople(updatedPeople);
-    setShowNewPersonForm(false);
   };
 
-  const handleSaveOrganization = async (org: Organization) => {
-    let updatedOrgs: Organization[];
+  const handleSaveOrganization = async (org: Organization, pendingAvatarFile?: File | null) => {
+    try {
+      // Save organization to database
+      const response = await fetch('/api/crm?type=organizations', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ data: org }),
+      });
 
-    if (editingOrganization) {
-      updatedOrgs = organizations.map(o => o.id === org.id ? org : o);
+      const result = await response.json();
+      if (!response.ok) {
+        console.error('Failed to save organization:', result.error);
+        return;
+      }
+
+      const savedOrg = result.data;
+
+      // If there's a pending avatar file, upload it now
+      if (pendingAvatarFile && savedOrg?.id) {
+        const formData = new FormData();
+        formData.append('file', pendingAvatarFile);
+        formData.append('entityType', 'organization');
+        formData.append('entityId', savedOrg.id);
+
+        await fetch('/api/avatar', {
+          method: 'POST',
+          body: formData,
+        });
+      }
+
+      // Refresh data from server
+      await loadData();
       setEditingOrganization(null);
-    } else {
-      updatedOrgs = [...organizations, org];
+      setShowNewOrgForm(false);
+    } catch (error) {
+      console.error('Error saving organization:', error);
     }
-
-    await fetch('/api/crm?type=organizations', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ data: updatedOrgs }),
-    });
-    setOrganizations(updatedOrgs);
-    setShowNewOrgForm(false);
   };
 
   const handleAddNote = async (entityId: string, entityType: 'person' | 'organization', content: string) => {
@@ -377,6 +419,7 @@ export default function CRM() {
           }}
           organizations={organizations}
           initialData={editingPerson}
+          onDataRefresh={loadData}
         />
       )}
 
@@ -389,6 +432,7 @@ export default function CRM() {
           }}
           people={people}
           initialData={editingOrganization}
+          onDataRefresh={loadData}
         />
       )}
       </div>
@@ -488,9 +532,17 @@ function OrganizationCard({
       }`}
     >
       <div className="flex items-start gap-3 mb-3">
-        <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center text-xl font-semibold">
-          {organization.name[0]}
-        </div>
+        {organization.avatar ? (
+          <img
+            src={organization.avatar}
+            alt={organization.name}
+            className="w-12 h-12 rounded-lg object-cover"
+          />
+        ) : (
+          <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center text-xl font-semibold">
+            {organization.name[0]}
+          </div>
+        )}
         <div className="flex-1">
           <h3 className="font-semibold text-lg">{organization.name}</h3>
           <p className="text-sm text-gray-600">{organization.businessType}</p>
@@ -700,9 +752,17 @@ function OrganizationDetails({ organization, people }: { organization: Organizat
   return (
     <div className="space-y-4">
       <div className="flex items-center gap-4">
-        <div className="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center text-2xl font-semibold">
-          {organization.name[0]}
-        </div>
+        {organization.avatar ? (
+          <img
+            src={organization.avatar}
+            alt={organization.name}
+            className="w-16 h-16 rounded-lg object-cover"
+          />
+        ) : (
+          <div className="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center text-2xl font-semibold">
+            {organization.name[0]}
+          </div>
+        )}
         <div>
           <h3 className="text-xl font-bold">{organization.name}</h3>
           <p className="text-gray-600">{organization.businessType}</p>
@@ -754,12 +814,14 @@ function PersonForm({
   onSave,
   onCancel,
   organizations,
-  initialData
+  initialData,
+  onDataRefresh
 }: {
-  onSave: (person: Person) => void;
+  onSave: (person: Person, pendingAvatarFile?: File | null) => void;
   onCancel: () => void;
   organizations: Organization[];
   initialData?: Person | null;
+  onDataRefresh?: () => void;
 }) {
   const [formData, setFormData] = React.useState({
     firstName: initialData?.firstName || '',
@@ -773,6 +835,12 @@ function PersonForm({
     tags: initialData?.tags.join(', ') || '',
   });
 
+  const avatarUpload = useAvatarUpload();
+
+  const handleAvatarChange = (url: string | null) => {
+    setFormData({ ...formData, avatar: url || '' });
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const person: Person = {
@@ -781,7 +849,7 @@ function PersonForm({
       lastName: formData.lastName,
       email: formData.email,
       phone: formData.phone,
-      avatar: formData.avatar,
+      avatar: avatarUpload.previewUrl || formData.avatar,
       organizationId: formData.organizationId || null,
       jobTitle: formData.jobTitle,
       description: formData.description,
@@ -789,7 +857,13 @@ function PersonForm({
       dateAdded: initialData?.dateAdded || new Date().toISOString(),
       lastContacted: initialData?.lastContacted || new Date().toISOString(),
     };
-    onSave(person);
+    onSave(person, avatarUpload.pendingFile);
+  };
+
+  const getInitials = () => {
+    const first = formData.firstName?.[0] || '';
+    const last = formData.lastName?.[0] || '';
+    return (first + last).toUpperCase() || '?';
   };
 
   return (
@@ -797,6 +871,23 @@ function PersonForm({
       <div className="bg-white rounded-lg p-6 max-w-2xl w-full max-h-[90vh] overflow-y-auto">
         <h2 className="text-2xl font-bold mb-4">{initialData ? 'Edit Person' : 'New Person'}</h2>
         <form onSubmit={handleSubmit} className="space-y-4">
+          {/* Avatar Upload */}
+          <div className="flex justify-center pb-4 border-b">
+            <AvatarUpload
+              entityType="person"
+              entityId={initialData?.id || null}
+              currentAvatar={formData.avatar || null}
+              onAvatarChange={(url) => {
+                handleAvatarChange(url);
+                if (url && initialData?.id) {
+                  onDataRefresh?.();
+                }
+              }}
+              initials={getInitials()}
+              shape="circle"
+            />
+          </div>
+
           <div className="grid grid-cols-2 gap-4">
             <div>
               <label className="block text-sm font-medium mb-1">First Name *</label>
@@ -839,29 +930,6 @@ function PersonForm({
               onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
               className="w-full px-3 py-2 border rounded"
             />
-          </div>
-
-          <div>
-            <label className="block text-sm font-medium mb-1">Avatar URL</label>
-            <input
-              type="url"
-              value={formData.avatar}
-              onChange={(e) => setFormData({ ...formData, avatar: e.target.value })}
-              className="w-full px-3 py-2 border rounded"
-              placeholder="https://example.com/photo.jpg"
-            />
-            {formData.avatar && (
-              <div className="mt-2">
-                <img
-                  src={formData.avatar}
-                  alt="Preview"
-                  className="w-16 h-16 rounded-full object-cover"
-                  onError={(e) => {
-                    e.currentTarget.style.display = 'none';
-                  }}
-                />
-              </div>
-            )}
           </div>
 
           <div>
@@ -934,15 +1002,18 @@ function OrganizationForm({
   onSave,
   onCancel,
   people,
-  initialData
+  initialData,
+  onDataRefresh
 }: {
-  onSave: (org: Organization) => void;
+  onSave: (org: Organization, pendingAvatarFile?: File | null) => void;
   onCancel: () => void;
   people: Person[];
   initialData?: Organization | null;
+  onDataRefresh?: () => void;
 }) {
   const [formData, setFormData] = React.useState({
     name: initialData?.name || '',
+    avatar: initialData?.avatar || '',
     address: initialData?.address || '',
     email: initialData?.email || '',
     phone: initialData?.phone || '',
@@ -951,11 +1022,18 @@ function OrganizationForm({
     tags: initialData?.tags.join(', ') || '',
   });
 
+  const avatarUpload = useAvatarUpload();
+
+  const handleAvatarChange = (url: string | null) => {
+    setFormData({ ...formData, avatar: url || '' });
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const org: Organization = {
       id: initialData?.id || crypto.randomUUID(),
       name: formData.name,
+      avatar: avatarUpload.previewUrl || formData.avatar,
       address: formData.address,
       email: formData.email,
       phone: formData.phone,
@@ -964,7 +1042,11 @@ function OrganizationForm({
       tags: formData.tags.split(',').map(t => t.trim()).filter(Boolean),
       dateAdded: initialData?.dateAdded || new Date().toISOString(),
     };
-    onSave(org);
+    onSave(org, avatarUpload.pendingFile);
+  };
+
+  const getInitials = () => {
+    return formData.name?.[0]?.toUpperCase() || '?';
   };
 
   return (
@@ -972,6 +1054,23 @@ function OrganizationForm({
       <div className="bg-white rounded-lg p-6 max-w-2xl w-full max-h-[90vh] overflow-y-auto">
         <h2 className="text-2xl font-bold mb-4">{initialData ? 'Edit Organization' : 'New Organization'}</h2>
         <form onSubmit={handleSubmit} className="space-y-4">
+          {/* Avatar Upload */}
+          <div className="flex justify-center pb-4 border-b">
+            <AvatarUpload
+              entityType="organization"
+              entityId={initialData?.id || null}
+              currentAvatar={formData.avatar || null}
+              onAvatarChange={(url) => {
+                handleAvatarChange(url);
+                if (url && initialData?.id) {
+                  onDataRefresh?.();
+                }
+              }}
+              initials={getInitials()}
+              shape="rounded"
+            />
+          </div>
+
           <div>
             <label className="block text-sm font-medium mb-1">Organization Name *</label>
             <input
