@@ -1,6 +1,5 @@
-import { NextRequest, NextResponse } from 'next/server';
-import { promises as fs } from 'fs';
-import path from 'path';
+import { NextRequest, NextResponse } from "next/server";
+import { getSupabaseServerClient } from "@/app/lib/supabase";
 
 interface LinkData {
   title: string;
@@ -10,80 +9,133 @@ interface LinkData {
   dateAdded: string;
 }
 
+// GET - fetch all links
 export async function GET() {
   try {
-    const linksDir = path.join(process.cwd(), 'wateros', 'links');
+    const supabase = getSupabaseServerClient();
 
-    // Check if directory exists
-    try {
-      await fs.access(linksDir);
-    } catch {
-      // Directory doesn't exist, return empty array
-      return NextResponse.json([]);
+    const { data: links, error } = await supabase
+      .from("links")
+      .select("*")
+      .order("date_added", { ascending: false });
+
+    if (error) {
+      console.error("Error fetching links:", error);
+      return NextResponse.json({ error: error.message }, { status: 500 });
     }
 
-    const files = await fs.readdir(linksDir);
-    const jsonFiles = files.filter(file => file.endsWith('.json'));
+    // Transform to match existing UI expectations
+    const transformedLinks: LinkData[] = links.map((link) => ({
+      title: link.title,
+      summary: link.summary || "",
+      bulletPoints: link.bullet_points || [],
+      url: link.url,
+      dateAdded: link.date_added,
+    }));
 
-    const links: LinkData[] = await Promise.all(
-      jsonFiles.map(async (file) => {
-        const filePath = path.join(linksDir, file);
-        const content = await fs.readFile(filePath, 'utf8');
-        return JSON.parse(content) as LinkData;
-      })
-    );
-
-    return NextResponse.json(links);
+    return NextResponse.json(transformedLinks);
   } catch (error) {
-    console.error('Error reading links:', error);
-    return NextResponse.json({ error: 'Failed to load links' }, { status: 500 });
+    console.error("Error reading links:", error);
+    return NextResponse.json({ error: "Failed to load links" }, { status: 500 });
   }
 }
 
+// POST - create a new link
 export async function POST(request: NextRequest) {
   try {
     const linkData: LinkData = await request.json();
-    const linksDir = path.join(process.cwd(), 'wateros', 'links');
+    const supabase = getSupabaseServerClient();
 
-    // Ensure directory exists
-    await fs.mkdir(linksDir, { recursive: true });
+    const { data, error } = await supabase
+      .from("links")
+      .insert({
+        title: linkData.title,
+        summary: linkData.summary || null,
+        bullet_points: linkData.bulletPoints || [],
+        url: linkData.url,
+        date_added: linkData.dateAdded || new Date().toISOString(),
+      })
+      .select()
+      .single();
 
-    // Generate filename from timestamp
-    const filename = `link-${Date.now()}.json`;
-    const filePath = path.join(linksDir, filename);
+    if (error) {
+      console.error("Error saving link:", error);
+      // Check for unique constraint violation (duplicate URL)
+      if (error.code === "23505") {
+        return NextResponse.json({ error: "Link with this URL already exists" }, { status: 409 });
+      }
+      return NextResponse.json({ error: error.message }, { status: 500 });
+    }
 
-    await fs.writeFile(filePath, JSON.stringify(linkData, null, 2), 'utf8');
-
-    return NextResponse.json({ success: true, filename });
+    return NextResponse.json({ success: true, id: data.id });
   } catch (error) {
-    console.error('Error saving link:', error);
-    return NextResponse.json({ error: 'Failed to save link' }, { status: 500 });
+    console.error("Error saving link:", error);
+    return NextResponse.json({ error: "Failed to save link" }, { status: 500 });
   }
 }
 
-export async function DELETE(request: NextRequest) {
+// PUT - update an existing link
+export async function PUT(request: NextRequest) {
   try {
-    const { url } = await request.json();
-    const linksDir = path.join(process.cwd(), 'wateros', 'links');
+    const { id, ...linkData } = await request.json();
 
-    const files = await fs.readdir(linksDir);
-    const jsonFiles = files.filter(file => file.endsWith('.json'));
-
-    // Find and delete the file with matching URL
-    for (const file of jsonFiles) {
-      const filePath = path.join(linksDir, file);
-      const content = await fs.readFile(filePath, 'utf8');
-      const linkData = JSON.parse(content) as LinkData;
-
-      if (linkData.url === url) {
-        await fs.unlink(filePath);
-        return NextResponse.json({ success: true });
-      }
+    if (!id) {
+      return NextResponse.json({ error: "Missing link id" }, { status: 400 });
     }
 
-    return NextResponse.json({ error: 'Link not found' }, { status: 404 });
+    const supabase = getSupabaseServerClient();
+
+    const updateData: Record<string, unknown> = {};
+    if (linkData.title !== undefined) updateData.title = linkData.title;
+    if (linkData.summary !== undefined) updateData.summary = linkData.summary;
+    if (linkData.bulletPoints !== undefined) updateData.bullet_points = linkData.bulletPoints;
+    if (linkData.url !== undefined) updateData.url = linkData.url;
+
+    const { error } = await supabase
+      .from("links")
+      .update(updateData)
+      .eq("id", id);
+
+    if (error) {
+      console.error("Error updating link:", error);
+      return NextResponse.json({ error: error.message }, { status: 500 });
+    }
+
+    return NextResponse.json({ success: true });
   } catch (error) {
-    console.error('Error deleting link:', error);
-    return NextResponse.json({ error: 'Failed to delete link' }, { status: 500 });
+    console.error("Error updating link:", error);
+    return NextResponse.json({ error: "Failed to update link" }, { status: 500 });
+  }
+}
+
+// DELETE - delete a link by URL (for backward compatibility) or by ID
+export async function DELETE(request: NextRequest) {
+  try {
+    const { url, id } = await request.json();
+    const supabase = getSupabaseServerClient();
+
+    let error;
+
+    if (id) {
+      // Delete by ID (preferred)
+      const result = await supabase.from("links").delete().eq("id", id);
+      error = result.error;
+    } else if (url) {
+      // Delete by URL (backward compatibility)
+      const result = await supabase.from("links").delete().eq("url", url);
+      error = result.error;
+    } else {
+      return NextResponse.json({ error: "Missing url or id" }, { status: 400 });
+    }
+
+    if (error) {
+      console.error("Error deleting link:", error);
+      return NextResponse.json({ error: error.message }, { status: 500 });
+    }
+
+    return NextResponse.json({ success: true });
+  } catch (error) {
+    console.error("Error deleting link:", error);
+    return NextResponse.json({ error: "Failed to delete link" }, { status: 500 });
   }
 }
