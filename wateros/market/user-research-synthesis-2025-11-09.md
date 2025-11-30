@@ -1,10 +1,10 @@
 # User Research Synthesis
-**Version:** 1.0 | **Last Updated:** 2025-11-22
+**Version:** 1.1 | **Last Updated:** 2025-11-29
 
-**Research Period:** October 28 - November 7, 2025
-**Total Interviews:** 13 participants
+**Research Period:** October 28 - November 26, 2025
+**Total Interviews:** 14 participants
 **Geographic Focus:** Greater Accra Metropolitan Area (GAMA)
-**User Types:** Residential Purchasers (6), Commercial Purchasers (2), Drivers/Fleet Owners (3), Depot Owners (1), Community Resellers (1)
+**User Types:** Residential Purchasers (6), Commercial Purchasers (2), Drivers/Fleet Owners (3), Depot Owners (1), Community Resellers (1), GWCL Officials (1)
 
 ---
 
@@ -445,6 +445,132 @@ Community resellers represent a **third-party distribution layer** that emerged 
 - Potential partners for last-mile distribution in high-density areas
 
 **Not a primary customer segment for V1**, but represents potential future channel for residential deliveries in compound housing areas.
+
+---
+
+### 1.6 GWCL Official (n=1)
+
+#### Ing. Gyikunu - Ghana Water Company Limited (37 Military Depot)
+
+**Interview Date:** November 26, 2025
+**Location:** GWCL 37 Military Tanker Filling Point, Accra
+
+**Background:**
+- Engineer at official GWCL Tanker Filling Point
+- Direct operational knowledge of hydrant management
+- Provided insider perspective on shutdown decisions and regulatory concerns
+
+**Understanding Non-Revenue Water (NRW):**
+
+The engineer explained NRW as "water we treat, transport, and deliver but never get money for." Using an analogy: "If you take a basket of tomatoes to the market and expect to make ₵1,000 but you only make ₵500, the missing ₵500 is 'non-revenue tomatoes.'"
+
+**Three Major Sources of Revenue Loss:**
+
+| Source | Description |
+|--------|-------------|
+| **Leakages** | Aging pipes (50-60 years old) cause large physical losses |
+| **Faulty/Under-reading Meters** | Customers consume more than billed ("We give them 8 tomatoes but the meter bills them for 5") |
+| **Illegal Connections** | Bypassed meters, illegal pumping from lines, hydrant operators stealing water |
+
+**Key Quote on Illegal Connections:**
+> "These illegal connections are a BIG problem. People pay the fine and repeat it. They make far more money than the fine."
+
+**How Tanker Filling Points Actually Work:**
+
+- GWCL calls them "Tanker Filling Points," not depots
+- Anyone can fetch water — drivers, private vendors, households with small tanks
+- GWCL used to own tankers but privatized due to mismanagement
+- **Pricing:** GWCL sells at ₵10-15 per cubic metre; tankers resell for ₵300-1,000 depending on distance and scarcity
+
+**The Bypass Problem:**
+> "Some tanker operators bypass the meters to steal water. They connect to the line, draw water, and pretend they bought from us."
+
+**Why Hydrants Were Shut Down (July/August 2025):**
+
+The engineer was explicit: **"The shutdown was not politics."**
+
+Reasons for shutdown:
+1. Tanker operators stealing water on massive scale
+2. GWCL staff colluding with operators
+3. Illegal hydrant bypasses causing millions in losses
+4. NRW already at 52%, illegal tanker withdrawals making it worse
+
+**Key Quote:**
+> "If you are bypassing us, then we will shut all tanker filling points down."
+
+The shutdown lasted months until partial reopening ~3 weeks before interview (early November 2025).
+
+**Why Depots Cannot Run Every Day:**
+
+- GWCL does not have enough water to supply all households
+- Water is rationed: different communities get water on different days
+- If tankers take too much, households get nothing
+- Some tankers put illegal pumps on lines, reducing pressure for others
+- Depots must shut certain days (e.g., Thursdays) to let reservoirs recover
+
+**Why GWCL Won't Partner With Private Depots:**
+
+When asked about partnering with private depot operators:
+- Too many illegal operators
+- Too much regulatory burden
+- Cannot monitor private vendors
+- Prefer centralized control via official Tanker Filling Points
+
+> "Liaising with all private sellers is too much. We cannot finish that work."
+
+**Requirements to Work With GWCL:**
+
+The engineer outlined what a platform like Water OS would need:
+1. Official authorization from GWCL
+2. Compliance with rationing schedules
+3. Guarantee that tankers won't overload the system
+4. Transparency with metering and inflows/outflows
+5. Prevention of illegal pumping and bypasses
+
+**Critical Quote:**
+> "Unless you take water from a hydrant, where will you produce water from?"
+
+This confirms: the only reliable, consistently available water source is an official GWCL hydrant.
+
+**Technology Interest:**
+
+The engineer showed strong interest in digital verification:
+- Loved the concept of tanker operators recording meter readings digitally
+- GWCL needs independent verification of: truck volume, start/end meter readings, payment, destination
+- Currently has **zero visibility** of which truck fetched water, how much, where it went, or whether payment happened
+
+**Pain Point Scorecard:**
+
+| Pain Point | Score | Notes |
+|------------|-------|-------|
+| Non-Revenue Water (NRW) | 10/10 | Biggest national crisis; millions lost; illegal connections & faulty meters major contributors |
+| Illegal Tanker Withdrawals/Bypasses | 10/10 | Staff collusion, illegal lines, private depots bypassing meters; main driver of shutdowns |
+| Hydrant Mismanagement & Theft | 9/10 | Tankers under-report volumes; no reliable verification; trucks fetch 11 cubic but pay for 10 |
+| Water Shortage/Rationing Constraints | 8/10 | Cannot supply households + depots simultaneously; must shut depots to build reservoir levels |
+| Infrastructure Weakness (Old Pipes) | 7/10 | Leakage contributes heavily to NRW; cannot fix quickly without revenue improvements |
+| Communication Gaps With Public | 6/10 | Public misunderstands shutdown reasons; misinformation spreads easily |
+
+**Critical Insights for Water OS:**
+
+1. **Digital Metering & Real-Time Tracking** — GWCL desperately needs independent verification of truck volume, meter readings, payment, and destination. Water OS can become this verification layer.
+
+2. **Visibility Gap** — GWCL has zero visibility into which truck fetched water, how much, where it went, or whether payment occurred. Platform can fill this gap.
+
+3. **"Bypass Culture" Is Deep & Organized** — There is organized water theft: hidden bypass pipelines, staff collusion, illegal pumps, under-reporting by drivers. Water OS must position as the trusted anti-theft alternative.
+
+4. **Rationing Calendar Compliance** — Depots cannot operate every day; they shut on "recovery days." Platform must respect GWCL's rationing calendar to be viable partner.
+
+5. **Permanent Market Demand** — Households rely heavily on tanker water due to rationing, poor pressure, illegal pumps by neighbors, and inconsistent supply. This validates that Water OS addresses a structural need, not a temporary shortage.
+
+**Strategic Implication:**
+
+This interview fundamentally reframes GWCL from adversary to potential partner. GWCL's core problem is **lack of visibility and control** over the tanker ecosystem. Water OS can position as the solution:
+
+- **Value prop to GWCL:** "We give you real-time visibility into every tanker transaction — volume, source, destination, payment. We help you reduce NRW."
+- **Partnership approach:** Offer GWCL dashboard access showing aggregated data on tanker movements
+- **Compliance commitment:** Build rationing calendar into platform; refuse to dispatch to areas on "recovery days"
+
+This is not just regulatory risk mitigation — it's a potential **competitive moat**. If Water OS becomes GWCL's preferred digital partner, competitors cannot easily replicate that relationship.
 
 ---
 

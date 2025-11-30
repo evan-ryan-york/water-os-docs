@@ -9,7 +9,7 @@ interface Transcript {
   id: string;
   name: string;
   date: string;
-  type: "driver" | "residential" | "commercial" | "depot";
+  type: "driver" | "residential" | "commercial" | "depot-private" | "depot-public" | "gwcl";
   content: string;
 }
 
@@ -672,9 +672,9 @@ He is responsible for all purchasing, transportation arrangements, and pricing d
 
 Buys water from private tanker drivers who fetch it from treated borehole depots or private filling points (since Ghana Water suspended tanker hydrant operations).
 
-Each 1,000-liter refill costs about GHS 300, inclusive of water, fuel, and transport.
+Each 1,000-liter refill costs about GHS 1,000, inclusive of water, fuel, and transport.
 
-A 400-liter refill costs around GHS 150.
+A 400-liter refill costs around GHS 400.
 
 Notes that prices have sharply increased in the last year due to the restricted GWCL supply and rising fuel prices.
 
@@ -772,7 +772,7 @@ His openness to technology signals an emerging readiness for digital coordinatio
 
 | Pain Point | Score (1–10) | Notes / Justification |
 |------------|--------------|----------------------|
-| **1. Cost of Supply (Fuel + Water)** | **10 / 10** | Huge cost burden — pays ≈ GHS 300 per 1,000 L including fuel and transport. Profit margins are collapsing; he called the price "too much." |
+| **1. Cost of Supply (Fuel + Water)** | **10 / 10** | Huge cost burden — pays ≈ GHS 1,000 per 1,000 L including fuel and transport. Profit margins are collapsing; he called the price "too much." |
 | **2. Access to Water (Source Availability)** | **9 / 10** | Ghana Water's ban on tanker hydrants and closure of some depots make sourcing difficult; sometimes waits days or travels long distances. |
 | **3. Supply Reliability (Depot / Driver Delays)** | **8 / 10** | Tanker delays and inconsistent schedules lead to stockouts; cannot restock tanks when demand spikes. |
 | **4. Profitability & Customer Pricing** | **8 / 10** | Rising costs cannot be fully passed on to customers; must keep prices "affordable" for the community, reducing profit. |
@@ -798,7 +798,7 @@ This Sakumono-based community water seller faces the brunt of Ghana's ongoing wa
     id: "depot-denis-001",
     name: "Depot & Fleet Owner Interview - Denis Opoku Amanor (Tema)",
     date: "2025-11-07",
-    type: "depot",
+    type: "depot-private",
     content: `# Interview Summary: Denis Opoku Amanor – Depot & Fleet Owner (Tema)
 
 **Date:** 7-11-2025
@@ -925,7 +925,7 @@ Denis Opoku Amanor's case exposes how a single regulatory decision can cripple b
     id: "depot-ebo-001",
     name: "Depot Owner Interview - Ebo Ghartey (Tema Industrial Area)",
     date: "2025-11-12",
-    type: "depot",
+    type: "depot-private",
     content: `# Interview Summary: Ebo Ghartey – Depot Owner (Tema Industrial Area)
 
 **Date:** 12 November 2025
@@ -1135,7 +1135,7 @@ Ebo Ghartey's depot shutdown represents a complete business collapse despite bei
     id: "depot-timber-market-001",
     name: "Depot Owner Interview - Timber Market Tema",
     date: "2025-11-13",
-    type: "depot",
+    type: "depot-private",
     content: `# Interview Summary: Depot Owner – Tema Timber Market
 
 **Name:** Timber Market Tema
@@ -1336,6 +1336,326 @@ The Tema Timber Market depot owner's account reveals the full downstream impact 
 His most urgent concerns revolve around GWCL's lack of communication, collapse of tanker supply chains, and growing pressure from essential institutions like schools and hospitals. He believes the solution is not shutting depots down, but implementing a transparent tracking system that ensures accountability without harming the ecosystem.
 
 His story strongly supports the case for ClearWater's "data-for-water" model, which would give GWCL transparency while allowing depots to operate legally and consistently again.
+`
+  },
+  {
+    id: "depot-james-001",
+    name: "Private Hydrant Owner Interview - Mr. James (Accra)",
+    date: "2025-11-26",
+    type: "depot-private",
+    content: `# Interview Summary: Mr. James – Private Hydrant Owner (Accra)
+
+**Location:** Accra (claims to run "the biggest hydrant in Accra")
+**Date:** 26-11-2025
+**Role:** GWCL-connected hydrant operator (treated water, not borehole)
+**Profile:** Large-scale private hydrant owner selling treated GWCL water
+
+---
+
+## Context & Business Overview
+
+The participant runs what he describes as one of the biggest hydrants in Accra, selling treated GWCL water — not borehole water.
+
+He contrasts himself with individuals who have dug boreholes, whose water is often untreated and salty, yet are still allowed to operate and sell to the public.
+
+He insists his own water is fully treated because it comes directly from GWCL, and he pays very high bills (≈ ₵90,000 per cycle or billing period) to Ghana Water.
+
+---
+
+## Shutdown Impact
+
+His hydrant has been shut down as part of the August–ongoing clampdown, and he feels:
+
+- **Targeted and unfairly punished** despite being "legal" and on the grid
+- That the **real theft is from households and illegal connections**, not necessarily from compliant hydrant operators like himself
+
+He states that:
+- Every time his hydrant is off, he loses money, his staff are idle, and customers are forced to buy from borehole sellers
+- People now depend on untreated borehole water "full of salt", which he believes is worse for public health than his treated water
+
+He suspects political reasons or opaque internal decisions behind the shutdown.
+
+**Key Quote:**
+> "I pay about 90,000 Ghana cedis to GWCL every time, and I don't know why they shut me down. I'm losing money, and people are now using salty borehole water instead."
+
+---
+
+## Pain Point Scorecard
+
+| Pain Point | Score | Notes |
+|------------|-------|-------|
+| Depot Shutdown / Loss of Operations | 10/10 | Hydrant completely shut; no sales; major fixed costs (bills, staff) but zero operating revenue |
+| Revenue Loss & Financial Pressure | 10/10 | Pays ≈₵90,000 to GWCL per cycle, but cannot operate; feels the system is killing a compliant business |
+| Perceived Unfairness vs Borehole Sellers | 9/10 | Treated GWCL water is blocked while untreated salty borehole water is still being sold freely |
+| Trust & Communication with GWCL | 8/10 | Says he doesn't know why he was shut down; suspects politics; doesn't feel heard or engaged |
+| Reputation & Customer Retention | 7/10 | Long closures push customers towards alternative (boreholes); fears of losing long-term clients |
+
+---
+
+## Emerging Themes (Technology & Strategy Relevance)
+
+### 1. "We're Legal, They're Not" Narrative
+
+This depot owner sees himself as compliant and heavily billed, yet punished alongside illegal actors.
+
+**Water OS Opportunity:** Position as a "compliance shield" — "If you run through our platform, we can prove to GWCL that you're clean and fully paid."
+
+### 2. Quality vs Access Trade-off
+
+Shutting treated-water hydrants has pushed people to salty, untreated boreholes.
+
+**Public Health Argument:** "A controlled, monitored hydrant network is safer than pushing people to unregulated boreholes." This is powerful messaging for GWCL and donors.
+
+### 3. Data as Protection for 'Good Actors'
+
+He's basically saying: "I pay a lot and still get shut down because GWCL can't tell who is honest and who is stealing."
+
+**Water OS Value Prop:** Verified inflow–outflow data becomes a way for honest depots to prove they're not part of the theft problem.
+
+---
+
+## Summary
+
+Mr. James represents the frustrated "compliant operator" archetype — a large-scale, legal, bill-paying hydrant owner who feels unfairly punished by blanket GWCL shutdowns. His ₵90,000/cycle payments demonstrate significant revenue for GWCL, yet he receives no differentiation from illegal operators.
+
+His case powerfully illustrates why Water OS's data transparency layer could serve as a "compliance shield" for good actors, while simultaneously helping GWCL identify and target actual theft. The public health angle — treated water being blocked while salty borehole water floods the market — adds urgency to the regulatory partnership conversation.
+`
+  },
+  {
+    id: "depot-gwcl-37military-001",
+    name: "GWCL Public Depot Visit - Madam Phyllis (37 Military)",
+    date: "2025-11-18",
+    type: "depot-public",
+    content: `# Interview Summary: GWCL Depot Visit (37 Military / Accra Region)
+
+**Location:** GWCL 37 Military Depot, Accra
+**Date:** 18-11-2025
+**Respondent:** Madam Phyllis (GWCL Staff)
+**Interviewer:** Anna
+**Context:** Part of a "depot hunt" to understand where trucks currently fetch water, how GWCL manages hydrants, and whether the system is operational following the nationwide shutdown earlier this year.
+
+---
+
+## Summary of Conversation
+
+Visited the 37 Military–Accra Regional GWCL Depot and spoke with Madam Phyllis, who clarified how their operations work and what has changed in recent months.
+
+---
+
+## GWCL's Four Official Depots in Accra
+
+According to Madam Phyllis, GWCL has four major hydrant depots officially serving tanker trucks:
+
+1. **37 Military / East Accra Regional Office**
+2. **Awoshie Depot**
+3. **Bawaleshie (East Legon)**
+4. **Agbogba Depot**
+
+These are the **only official points** where GWCL sells bulk water directly to tanker operators.
+
+---
+
+## Operations: How Water Is Sold to Tankers
+
+The official process for tanker filling:
+
+1. Tankers arrive at the hydrant, park, and connect to the GWCL outlet
+2. Water is released, and the meter reads the volume dispensed
+3. Drivers take the meter reading slip to the GWCL office on-site
+4. Payment is made immediately based on:
+   - The volume fetched (liters/gallons)
+   - The tanker size (standardized categories)
+5. After payment, the driver returns with the receipt before leaving
+
+She emphasized that **this is the official and only legal process** for tanker filling in Accra.
+
+---
+
+## Operational Restrictions & Updates
+
+### Closed on Thursdays
+The depot does not open on Thursdays due to internal operational schedules and maintenance.
+
+### Shutdown & Reopening Timeline
+- The depot was shut down in July during the period when GWCL suspended hydrant operations nationwide
+- It remained closed for several months
+- **It reopened about three weeks ago** (late October/early November 2025)
+- Operations have resumed at 37 Military and the other main depots
+
+This confirms that at least some official GWCL depots are operational again, though many private depots remain closed.
+
+---
+
+## Additional Field Notes from the Visit
+
+### Inquiry Posed as a Fleet Owner
+
+To understand the real customer experience, Anna inquired as if she owned a truck:
+
+- Staff indicated that water is available
+- They did not disclose pricing easily and said she would have to "fetch first, let the meter read" before they can quote
+- **This matches feedback from drivers that GWCL is not transparent with prices upfront**
+
+### Household-Based "Informal Depots"
+
+Separately identified a location where:
+- A household with running water has informally turned their home into a mini-depot
+- Drivers and smaller tank operators buy water directly from their compound
+- Video captured to document this
+
+**This confirms the rise of unregulated private depots due to the shutdown.**
+
+---
+
+## Emerging Themes from This Visit
+
+### 1. Partial Reopening (Official Depots Only)
+- Official GWCL depots are reopening quietly
+- Private depots remain closed
+- This is creating a **two-tier supply system**
+
+### 2. Transparency Gaps
+- No upfront pricing
+- No public information on operation hours
+- Drivers rely on word-of-mouth
+
+### 3. Unregulated Private Depots Are Filling the Gap
+- Households with good access are turning into "shadow depots"
+- Pricing varies widely
+- No safety or quality assurance
+
+### 4. Evidence of GWCL's Attempt to Regain Control
+- Meter-only dispensing
+- Strict receipt-based departure
+- Limiting operation days
+- Aligns with revenue protection strategies
+
+---
+
+## Strategic Insights for Water OS
+
+### Official Depot Mapping Opportunity
+With only 4 official GWCL depots in Accra, Water OS can easily integrate these into the platform as verified, always-current sources. Partnership with GWCL could provide real-time availability data.
+
+### Transparency Value Prop
+GWCL's lack of upfront pricing creates friction for drivers. Water OS could provide standardized pricing information, reducing uncertainty and building trust.
+
+### Shadow Depot Problem
+The emergence of household "mini-depots" creates quality and safety risks. Water OS's verified source tracking becomes even more valuable in this environment.
+
+### Thursday Closure Intelligence
+Knowing operational schedules (like Thursday closures) is exactly the kind of information drivers need. Platform can provide "depot status" updates to prevent wasted trips.
+`
+  },
+  {
+    id: "driver-association-mallam-001",
+    name: "Truck Drivers' Association Chairman (Mallam/Lapaz)",
+    date: "2025-11-28",
+    type: "driver",
+    content: `# Interview Summary: Head of Truck Drivers' Association – Mallam/Lapaz Road
+
+**Location:** Mallam/Lapaz Road, Accra
+**Date:** 28-11-2025
+**Respondent:** Chairman of the Local Water Tanker Drivers' Association
+**Format:** In-person interview
+**Language:** English + Twi (translated)
+
+---
+
+## Interview Summary / Narrative
+
+Met with the head of the water tanker drivers' association at Mallam/Lapaz Road. He was very welcoming, open, and immediately interested in participating in the wider research. From the start, he acknowledged the severe change in their operations since the GWCL hydrant closures began in July/August.
+
+He explained that tanker drivers in the Mallam/Lapaz corridor now rely almost entirely on borehole water, because the hydrants and depots they previously depended on have remained closed or inconsistent for months. According to him, this shift is now "normal," and surprisingly, many customers—especially those in urgent need—actually request borehole water themselves because they know tanker drivers have no access to treated water.
+
+---
+
+## Key Disruptions from GWCL Closure
+
+The chairman emphasized that the closure has caused significant disruption:
+
+- **Drivers spend more time searching for water than delivering**
+- **Borehole owners have increased their prices** because they know drivers have no alternatives
+- **Some drivers have lost their regular customers** because of inconsistencies in water quality
+
+---
+
+## Enthusiasm for Collaboration
+
+Despite the frustrations, he was extremely supportive of the research. He sees the project as **"exactly what we've been praying for,"** because drivers want stability and predictability.
+
+He was enthusiastic about connecting the research team with more than a dozen additional drivers, including:
+
+- Long-distance tankers
+- Small-capacity tricycles
+- Night-shift emergency suppliers
+- Borehole-dependent distributors
+- Community-level tanker owners
+
+He offered to personally organize introductions and even suggested arranging a small group meeting if needed.
+
+**This association is proving to be one of the strongest relationship-building opportunities so far.** Their buy-in will be critical for platform adoption, and the chairman appears ready to champion it.
+
+---
+
+## Key Themes Identified
+
+### 1. Shift to Borehole Dependence
+Drivers now rely almost exclusively on boreholes because GWCL hydrants remain closed.
+
+### 2. Customer Acceptance of Borehole Water
+Many customers (especially in Mallam, Odorkor, Lapaz, Santa Maria, Gbawe) now request borehole water due to lack of options.
+
+### 3. Eagerness to Collaborate
+The chairman wants to help organize interviews and mobilize drivers for testing or pilot work.
+
+### 4. Operational Stress & Income Loss
+Long queues at private boreholes, price increases by borehole owners, and inconsistent supply all affect their earnings.
+
+### 5. High Interest in Technology
+He believes a platform guaranteeing depots-with-water **"will save the entire business."**
+
+---
+
+## Pain Point Scorecard (Mallam/Lapaz Truck Drivers)
+
+| Pain Point | Score | Notes |
+|------------|-------|-------|
+| No Access to GWCL Water | 10/10 | GWCL hydrants remain closed; drivers completely cut off from treated water |
+| Dependence on Expensive Boreholes | 9/10 | Borehole owners have raised prices knowing drivers have no alternatives |
+| Long Queues at Private Boreholes | 7/10 | Time wasted waiting; reduces number of daily trips |
+| Customer Complaints About Water Quality | 6/10 | Some drivers losing customers due to borehole water quality issues |
+| Irregular Trip Schedules | 3/10 | Minor issue compared to supply access problems |
+
+### Top Pain Points
+- 🟩 No Access to GWCL Water (10/10)
+- 🟩 Dependence on Expensive Boreholes (9/10)
+
+### Secondary Pain Points
+- 🟧 Long Queues at Private Boreholes (7/10)
+- 🟧 Customer Complaints About Water Quality (6/10)
+
+### Minor Pain Points
+- 🟦 Irregular Trip Schedules (3/10)
+
+---
+
+## Strategic Value for Water OS
+
+### Champion Identified
+The association chairman is a potential **early adopter champion**. His willingness to organize driver introductions and group meetings makes him invaluable for:
+- Driver recruitment during pilot phase
+- Word-of-mouth marketing within driver networks
+- Feedback collection and iteration
+
+### Market Validation
+The shift to borehole dependence and customer acceptance of it confirms:
+- Permanent structural demand for tanker water (not temporary)
+- Quality assurance is a differentiator (some drivers losing customers over quality)
+- Depot finder feature is critical ("drivers spend more time searching than delivering")
+
+### Network Access
+Access to diverse driver segments (long-distance, tricycles, night-shift, community-level) enables comprehensive market understanding and multi-segment platform design.
 `
   },
   {
@@ -2286,6 +2606,214 @@ Ama's experience differs from Yaw's in meaningful ways:
 - **Administrative frustration with GWCL**
 - **Desire for autonomy via larger storage capacity**
 `
+  },
+  {
+    id: "gwcl-engineer-001",
+    name: "GWCL Interview - Ing. Gyikunu (37 Military Depot)",
+    date: "2025-11-26",
+    type: "gwcl",
+    content: `# Interview Summary: Ing. Gyikunu – GWCL Official
+
+**Location:** GWCL 37 Military Tanker Filling Point, Accra
+**Date:** 26-11-2025
+**Duration:** ~45 minutes
+**Interviewer:** Anna Dufie
+**Profile:** Engineer at official GWCL Tanker Filling Point with direct operational knowledge of hydrant management
+
+---
+
+## Introduction
+
+Anna:
+Thank you so much for your time. I'm conducting research on the water crisis and how tanker filling depots operate. I wanted to understand Ghana Water's viewpoint, especially with the recent shutdown of hydrants and depots.
+
+Engineer (GWCL):
+No problem. I'm happy to explain how things really work.
+
+---
+
+## Section 1: Understanding Non-Revenue Water (NRW)
+
+The engineer explained NRW as "water we treat, transport, and deliver but never get money for."
+
+**Analogy:**
+> "If you take a basket of tomatoes to the market and expect to make ₵1,000 but you only make ₵500, the missing ₵500 is 'non-revenue tomatoes.' It's the same with water."
+
+### Three Major Sources of Revenue Loss:
+
+**A. Leakages**
+- Aging pipes (some 50–60 years old) cause large physical losses
+- "The ones crushed at the bottom of the basket — nothing you can do about them"
+
+**B. Faulty / Under-reading Meters**
+- When meters under-read, customers consume more than what is billed
+- "We give them 8 tomatoes but the meter bills them for 5"
+
+**C. Illegal Connections**
+- People bypass meters
+- Some houses pump water illegally from GWCL lines
+- Hydrant operators sometimes bypass pipes and steal water
+
+**Key Quote:**
+> "These illegal connections are a BIG problem. People pay the fine and repeat it. They make far more money than the fine."
+
+---
+
+## Section 2: How Tanker Filling Points (Hydrants/Depots) Work
+
+**Terminology:**
+- GWCL calls them "Tanker Filling Points," not depots
+- Anyone can fetch water — drivers, private vendors, households using small tanks
+
+**History:**
+- Ghana Water used to own tankers, but it was mismanaged so the system was privatized
+
+**Pricing:**
+- GWCL sells water at a fixed rate (e.g., ₵10–₵15 per cubic metre)
+- Tanker drivers resell for ₵300–₵1,000 depending on distance and scarcity
+
+**The Bypass Problem:**
+> "Some tanker operators bypass the meters to steal water. They connect to the line, draw water, and pretend they bought from us."
+
+This was happening at multiple hydrants.
+
+---
+
+## Section 3: Why the Hydrants Were Shut Down
+
+The engineer was explicit: **"The shutdown (July/August 2025) was not politics."**
+
+**Reasons for shutdown:**
+1. Tanker operators were stealing water on a massive scale
+2. GWCL staff were colluding with them
+3. Illegal hydrant bypasses made GWCL lose millions
+4. NRW was already 52%, and illegal tanker withdrawals made it worse
+
+**Key Quote:**
+> "If you are bypassing us, then we will shut all tanker filling points down."
+
+The shutdown lasted months until a partial reopening 3 weeks ago (early November 2025).
+
+---
+
+## Section 4: Why Depots Cannot Run Every Day
+
+**Constraints:**
+- Even GWCL does not have enough water to supply all households
+- Water is rationed: different communities get water on different days
+- If tankers take too much water, households get nothing
+- Some tankers put illegal pumps on lines, making others lose pressure
+
+**Result:**
+- Depots must shut on certain days (e.g., Thursdays) to let reservoirs recover
+
+---
+
+## Section 5: Why GWCL Is Not Partnering With Private Depots
+
+**Anna's question:** Why not partner with private depots who already distribute water?
+
+**Engineer's response:**
+- Too many illegal operators
+- Too much burden to regulate
+- GWCL cannot monitor private vendors
+- They prefer centralized control via official Tanker Filling Points
+
+**Key Quote:**
+> "Liaising with all private sellers is too much. We cannot finish that work."
+
+---
+
+## Section 6: Requirements to Work With Ghana Water
+
+**Anna's question:** What would a platform need to do to work with GWCL?
+
+**Engineer's requirements:**
+1. Official authorization from GWCL
+2. Compliance with their rationing schedules
+3. Guarantee that no tankers will overload the system
+4. Transparency with metering and inflows/outflows
+5. Must prevent illegal pumping and bypasses
+
+**Critical Quote:**
+> "Unless you take water from a hydrant, where will you produce water from?"
+
+**Meaning:** The only reliable water source that can be consistently guaranteed is an official GWCL hydrant.
+
+---
+
+## Section 7: Technology Interest
+
+The engineer showed strong interest in digital verification:
+- Loved the concept of tanker operators recording meter readings digitally
+- GWCL needs independent verification of: truck volume, start/end meter readings, payment, destination
+
+**Current Visibility Gap:**
+GWCL has **zero visibility** of:
+- Which truck fetched water
+- How much they took
+- Where it went
+- Whether payment happened
+
+---
+
+## Pain Point Scorecard
+
+| Pain Point | Score | Notes |
+|------------|-------|-------|
+| NRW (Non-Revenue Water) | 10/10 | Biggest national crisis; GH₵ millions lost; illegal connections & faulty meters major contributors |
+| Illegal Tanker Withdrawals / Bypasses | 10/10 | Staff collusion, illegal lines, private depots bypassing meters; main driver of hydrant shutdowns |
+| Hydrant Mismanagement & Theft | 9/10 | Tankers under-report volumes; no reliable verification; some trucks fetch 11 cubic but pay for 10 |
+| Water Shortage / Rationing Constraints | 8/10 | Cannot supply households + depots simultaneously; depots must be shut some days to build reservoir levels |
+| Infrastructure Weakness (Old Pipes) | 7/10 | Leakage contributes heavily to NRW; cannot fix quickly without revenue improvements |
+| Communication Gaps With Public | 6/10 | Public misunderstands reasons for shutdown; misinformation spreads easily |
+
+---
+
+## Strategic Insights for Water OS
+
+### 1. Digital Metering & Real-Time Tracking
+Engineer loved the example of tanker operators recording meter readings themselves. GWCL needs independent verification of truck volume, start/end meter readings, payment, and destination.
+
+### 2. Hydrant → Depot → Tanker Visibility
+GWCL has zero visibility of which truck fetched water, how much, where it went, or whether payment happened. Water OS can become their visibility layer.
+
+### 3. "Bypass Culture" Is Deep & Organized
+There is organized water theft:
+- Hidden bypass pipelines
+- Staff collusion
+- Illegal pumps
+- Under-reporting by drivers
+
+Water OS must position as the trusted anti-theft alternative.
+
+### 4. "Depots cannot operate every day"
+This is critical intelligence:
+- Depots must shut down on "recovery days"
+- Any platform must respect the rationing calendar
+- Opportunity to build a "GWCL reservoir status API" or daily update feed
+
+### 5. Households rely heavily on tanker water
+Houses NEED tanker water because of:
+- Rationing
+- Poor pressure
+- Illegal pumps by neighbours
+- Inconsistent supply
+
+This proves market demand is permanent, not temporary.
+
+---
+
+## Key Takeaway
+
+This interview fundamentally reframes GWCL from adversary to potential partner. GWCL's core problem is **lack of visibility and control** over the tanker ecosystem. Water OS can position as the solution:
+
+- **Value prop to GWCL:** "We give you real-time visibility into every tanker transaction — volume, source, destination, payment. We help you reduce NRW."
+- **Partnership approach:** Offer GWCL dashboard access showing aggregated data on tanker movements
+- **Compliance commitment:** Build rationing calendar into platform; refuse to dispatch to areas on "recovery days"
+
+This is not just regulatory risk mitigation — it's a potential **competitive moat**. If Water OS becomes GWCL's preferred digital partner, competitors cannot easily replicate that relationship.
+`
   }
 ];
 
@@ -2342,7 +2870,7 @@ export default function UserResearch() {
         <div className="flex items-center justify-between mb-4">
           <div>
             <h1 className="text-2xl font-bold">User Research</h1>
-            <p className="text-sm text-gray-500">Version: 1.0 | Last Updated: 2025-11-22</p>
+            <p className="text-sm text-gray-500">Version: 1.1 | Last Updated: 2025-11-30</p>
           </div>
           <button
             onClick={copyAllVisible}
@@ -2392,10 +2920,22 @@ export default function UserResearch() {
               Commercial Only
             </button>
             <button
-              onClick={() => filterByType("depot")}
+              onClick={() => filterByType("depot-private")}
               className="px-3 py-1 text-sm bg-orange-50 hover:bg-orange-100 text-orange-700 rounded transition-colors"
             >
-              Depot Only
+              Private Depot
+            </button>
+            <button
+              onClick={() => filterByType("depot-public")}
+              className="px-3 py-1 text-sm bg-amber-50 hover:bg-amber-100 text-amber-700 rounded transition-colors"
+            >
+              Public Depot
+            </button>
+            <button
+              onClick={() => filterByType("gwcl")}
+              className="px-3 py-1 text-sm bg-red-50 hover:bg-red-100 text-red-700 rounded transition-colors"
+            >
+              GWCL Only
             </button>
           </div>
 
@@ -2452,9 +2992,14 @@ export default function UserResearch() {
                       transcript.type === "driver" ? "bg-blue-100 text-blue-800" :
                       transcript.type === "residential" ? "bg-green-100 text-green-800" :
                       transcript.type === "commercial" ? "bg-purple-100 text-purple-800" :
-                      "bg-orange-100 text-orange-800"
+                      transcript.type === "gwcl" ? "bg-red-100 text-red-800" :
+                      transcript.type === "depot-private" ? "bg-orange-100 text-orange-800" :
+                      transcript.type === "depot-public" ? "bg-amber-100 text-amber-800" :
+                      "bg-gray-100 text-gray-800"
                     }`}>
-                      {transcript.type}
+                      {transcript.type === "depot-private" ? "private depot" :
+                       transcript.type === "depot-public" ? "public depot" :
+                       transcript.type}
                     </span>
                   </div>
                 </div>
